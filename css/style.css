@@ -62,3 +62,47 @@ body {
     padding: 20px;
     font-size: 14px;
 }
+.plans {
+    padding: 20px;
+    text-align: center;
+}
+
+.plan-card {
+    background: #ffffff;
+    border: 2px solid #00a86b;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 450px;
+}
+
+.plan-card h3 {
+    color: #00a86b;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.plan-card ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.plan-card ul li {
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.gold {
+    border-color: #d4a017;
+}
+
+.gold h3 {
+    color: #d4a017;
+}
