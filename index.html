@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutri+</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nutrimais — Dietas e Treinos Personalizados</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header>
-        <img src="logo.png" alt="Nutri+" class="logo">
-        <h2>Escolha seu objetivo</h2>
+    <header class="header">
+        <img src="assets/logo.png" alt="Nutrimais" class="logo">
+        <nav>
+            <a href="login.html" class="btn-login">Entrar</a>
+        </nav>
     </header>
 
-    <div class="container">
-        
-        <input type="text" id="nome" placeholder="Digite seu nome" required>
+    <section class="hero">
+        <h1>Dieta e Treino totalmente personalizados</h1>
+        <p>Café da Manhã • Almoço • Café da Tarde • Jantar</p>
 
-        <button class="option" onclick="selectOption('Emagrecimento')">Emagrecimento</button>
-        <button class="option" onclick="selectOption('Definição Muscular')">Definição Muscular</button>
-        <button class="option" onclick="selectOption('Emagrecer + Ganho de Massa')">Emagrecer + Ganho de Massa</button>
-        <button class="option" onclick="selectOption('Definição + Ganho de Massa')">Definição + Ganho de Massa</button>
-        <button class="option" onclick="selectOption('Nutricionista')">Nutricionista</button>
+        <a href="plans.html" class="btn-primary">Montar minha Dieta</a>
+    </section>
 
-    </div>
-
-    <script src="script.js"></script>
+    <footer class="footer">
+        <p>© 2025 Nutrimais — Todos os direitos reservados</p>
+        <a href="https://wa.me/5527992987642" target="_blank">Contato pelo WhatsApp</a>
+    </footer>
 
 </body>
 </html>
