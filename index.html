@@ -1,72 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulário Fluxo</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>NutriMais - Início</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<div class="container">
-  <h2>Cadastro</h2>
 
-  <!-- Passo 1: Informações Básicas -->
-  <div class="step active" id="step1">
-    <h3>Passo 1: Informações Básicas</h3>
-    <label>Nome:</label>
-    <input type="text" id="nome" required>
-    <label>Telefone:</label>
-    <input type="text" id="telefone" required>
-    <label>E-mail:</label>
-    <input type="email" id="email" required>
-    <div class="buttons">
-      <span></span>
-      <button onclick="nextStep(1)">Próximo</button>
+  <div class="container">
+    <img src="img/logo.png" alt="NutriMais" class="logo">
+
+    <h1>Bem-vindo(a)</h1>
+    <p>Escolha como deseja continuar</p>
+
+    <div class="card" onclick="window.location.href='form.html'">
+      <h2>Sou novo por aqui</h2>
+      <p>Montar minha dieta personalizada</p>
+    </div>
+
+    <div class="card" onclick="window.location.href='login.html'">
+      <h2>Já sou cliente</h2>
+      <p>Acessar meu portal</p>
     </div>
   </div>
 
-  <!-- Passo 2: Formulário Detalhado (todos os campos antigos) -->
-  <div class="step" id="step2">
-    <h3>Passo 2: Formulário Detalhado</h3>
-    <!-- Exemplo de campos antigos -->
-    <label>Idade:</label>
-    <input type="number" id="idade">
-    <label>Endereço:</label>
-    <input type="text" id="endereco">
-    <label>Observações:</label>
-    <textarea id="observacoes"></textarea>
-    <!-- Continue adicionando os outros campos que você já tinha -->
-    <div class="buttons">
-      <button onclick="prevStep(2)">Voltar</button>
-      <button onclick="nextStep(2)">Próximo</button>
-    </div>
-  </div>
-
-  <!-- Passo 3: Escolha do Plano -->
-  <div class="step" id="step3">
-    <h3>Passo 3: Escolha do Plano</h3>
-    <!-- Exemplo de planos -->
-    <label><input type="radio" name="plano" value="Básico"> Plano Básico</label>
-    <label><input type="radio" name="plano" value="Intermediário"> Plano Intermediário</label>
-    <label><input type="radio" name="plano" value="Premium"> Plano Premium</label>
-    <div class="buttons">
-      <button onclick="prevStep(3)">Voltar</button>
-      <button onclick="nextStep(3)">Próximo</button>
-    </div>
-  </div>
-
-  <!-- Passo 4: Confirmação -->
-  <div class="step" id="step4">
-    <h3>Passo 4: Confirmação</h3>
-    <p>Confira seus dados e finalize o cadastro:</p>
-    <div id="resumo"></div>
-    <div class="buttons">
-      <button onclick="prevStep(4)">Voltar</button>
-      <button onclick="finalizar()">Finalizar</button>
-    </div>
-  </div>
-</div>
-
-<script src="scripts.js"></script>
 </body>
 </html>
