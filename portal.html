@@ -16,7 +16,8 @@
   <h2>Minha Dieta</h2>
   <div id="dieta"></div>
 
-  <button class="btn" onclick="baixarPDF()">Baixar dieta em PDF</button>
+  <button class="btn" onclick="<script src="js/pdf.js"></script>
+">Baixar dieta em PDF</button>
 
   <h2>Nutricionista</h2>
   <div id="consultasBox"></div>
@@ -91,15 +92,11 @@ function usarConsulta() {
   alert('Consulta utilizada com sucesso!');
 }
 
-function baixarPDF() {
-  alert('PDF gerado com sucesso! (simulação)');
-}
-
 function logout() {
   localStorage.removeItem('usuarioLogado');
   window.location.href = 'index.html';
 }
-</script>
-
+<script src="js/pdf.js"></script>
 </body>
 </html>
+
