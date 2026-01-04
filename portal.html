@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Meu Plano</h1>
+
+  <div id="infoUsuario"></div>
+
+  <h2>Minha Dieta</h2>
+  <div id="dieta"></div>
+
+  <button class="btn" onclick="baixarPDF()">Baixar dieta em PDF</button>
+
+  <h2>Nutricionista</h2>
+  <div id="consultasBox"></div>
+
+  <button class="btn" onclick="usarConsulta()">Usar consulta</button>
+
+  <br><br>
+  <button class="btn" onclick="logout()">Sair</button>
+</div>
+
+<script>
+const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+const alimentos = JSON.parse(localStorage.getItem('alimentosSelecionados'));
+
+if (!usuario) {
+  alert('Faça login para continuar');
+  window.location.href = 'login.html';
+}
+
+// Validade de 31 dias
+const inicio = new Date(usuario.dataInicio);
+const hoje = new Date();
+const dias = Math.floor((hoje - inicio) / (1000 * 60 * 60 * 24));
+
+if (dias > usuario.plano.validade) {
+  alert('Seu plano expirou');
+  localStorage.removeItem('usuarioLogado');
+  window.location.href = 'index.html';
+}
+
+// Info do usuário
+document.getElementById('infoUsuario').innerHTML = `
+  <div class="box">
+    <strong>Plano:</strong> ${usuario.plano.nome}<br>
+    <strong>E-mail:</strong> ${usuario.email}<br>
+    <strong>Dias restantes:</strong> ${usuario.plano.validade - dias}
+  </div>
+`;
+
+// Dieta
+document.getElementById('dieta').innerHTML = `
+  <div class="box">
+    <strong>Café da manhã:</strong> ${alimentos.cafeManha.join(', ')}<br><br>
+    <strong>Almoço:</strong> ${alimentos.almoco.join(', ')}<br><br>
+    <strong>Café da tarde:</strong> ${alimentos.cafeTarde.join(', ')}<br><br>
+    <strong>Janta:</strong> ${alimentos.janta.join(', ')}<br><br>
+    <strong>Doce:</strong> ${alimentos.doce.join(', ')}
+  </div>
+`;
+
+// Consultas
+let consultasRestantes = usuario.plano.consultas;
+
+document.getElementById('consultasBox').innerHTML = `
+  <div class="box">
+    Consultas disponíveis: <strong id="qtd">${consultasRestantes}</strong>
+  </div>
+`;
+
+function usarConsulta() {
+  if (consultasRestantes <= 0) {
+    alert('Você não possui mais consultas disponíveis');
+    return;
+  }
+
+  consultasRestantes--;
+  document.getElementById('qtd').innerText = consultasRestantes;
+
+  usuario.plano.consultas = consultasRestantes;
+  localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
+  alert('Consulta utilizada com sucesso!');
+}
+
+function baixarPDF() {
+  alert('PDF gerado com sucesso! (simulação)');
+}
+
+function logout() {
+  localStorage.removeItem('usuarioLogado');
+  window.location.href = 'index.html';
+}
+</script>
+
+</body>
+</html>
