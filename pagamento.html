@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Finalizar pagamento</h1>
+
+  <div id="resumoPlano"></div>
+
+  <h2>Forma de pagamento</h2>
+
+  <select id="formaPagamento">
+    <option value="">Selecione</option>
+    <option value="Pix">Pix</option>
+    <option value="Crédito">Cartão de crédito</option>
+    <option value="Débito">Cartão de débito</option>
+  </select>
+
+  <h2>Criar acesso ao portal</h2>
+
+  <input type="email" id="email" placeholder="E-mail" required>
+  <input type="password" id="senha" placeholder="Senha" required>
+
+  <button class="btn" onclick="finalizarPagamento()">
+    Finalizar pagamento
+  </button>
+</div>
+
+<script>
+const plano = JSON.parse(localStorage.getItem('planoEscolhido'));
+
+const resumo = document.getElementById('resumoPlano');
+resumo.innerHTML = `
+  <div class="box">
+    <strong>${plano.nome}</strong><br>
+    Valor: R$ ${plano.valor}<br>
+    Consultas com nutricionista: ${plano.consultas}<br>
+    Acesso por ${plano.validade} dias
+  </div>
+`;
+
+function finalizarPagamento() {
+  const forma = document.getElementById('formaPagamento').value;
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
+
+  if (!forma || !email || !senha) {
+    alert('Preencha todos os campos');
+    return;
+  }
+
+  const usuario = {
+    email: email,
+    senha: senha,
+    plano: plano,
+    dataInicio: new Date().toISOString()
+  };
+
+  localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
+  alert('Pagamento realizado com sucesso!');
+  window.location.href = 'portal.html';
+}
+</script>
+
+</body>
+</html>
