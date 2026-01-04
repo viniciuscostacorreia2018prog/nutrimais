@@ -1,90 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrimais - Informações</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            margin: 0;
-            padding: 0;
-            color: #222;
-        }
-        header {
-            background: #1dbf73;
-            padding: 16px;
-            text-align: center;
-            color: #fff;
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .container {
-            width: 90%;
-            max-width: 500px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-        }
-        .step-title {
-            font-size: 20px;
-            margin-bottom: 18px;
-            color: #1dbf73;
-            font-weight: bold;
-        }
-        label {
-            display: block;
-            font-size: 14px;
-            margin: 6px 0 4px;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 14px;
-            border: 1px solid #cfcfcf;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        button {
-            background: #1dbf73;
-            color: #fff;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: .3s;
-        }
-        button:hover {
-            background: #17a765;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Dados Iniciais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
-<header>Nutrimais</header>
+  <div class="container">
+    <h1>Vamos começar</h1>
+    <p>Preencha seus dados para montar sua dieta</p>
 
-<div class="container">
-    <div class="step-title">Etapa 1 de 3 — Seus Dados</div>
+    <form id="formDados">
 
-    <form action="planos.html" method="GET">
-        <label>Nome completo:</label>
-        <input type="text" name="nome" required>
+      <input type="number" id="peso" placeholder="Peso (kg)" required>
+      <input type="number" id="altura" placeholder="Altura (cm)" required>
+      <input type="number" id="idade" placeholder="Idade" required>
 
-        <label>WhatsApp:</label>
-        <input type="tel" name="whatsapp" required>
+      <select id="objetivo" required>
+        <option value="">Objetivo</option>
+        <option value="Emagrecimento">Emagrecimento</option>
+        <option value="Hipertrofia">Hipertrofia</option>
+        <option value="Manutenção">Manutenção</option>
+      </select>
 
-        <label>E-mail:</label>
-        <input type="email" name="email" required>
+      <select id="calorias" required>
+        <option value="">Calorias diárias</option>
+        <option value="1800">1800 kcal</option>
+        <option value="2000">2000 kcal</option>
+        <option value="2200">2200 kcal</option>
+      </select>
 
-        <button type="submit">Próxima Etapa ➜</button>
+      <div class="sexo">
+        <button type="button" data-sexo="Masculino" class="sexo-btn">Masculino</button>
+        <button type="button" data-sexo="Feminino" class="sexo-btn">Feminino</button>
+      </div>
+
+      <button type="submit" class="btn">Continuar</button>
+
     </form>
-</div>
+  </div>
 
+  <script src="js/form.js"></script>
 </body>
 </html>
