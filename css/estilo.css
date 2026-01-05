@@ -129,3 +129,44 @@ h2 {
 .box input {
   margin-right: 6px;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #2ecc71;
+}
+
+.card.ativo {
+  background: #2ecc71;
+  color: #fff;
+  border-color: #2ecc71;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background: #27ae60;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}
