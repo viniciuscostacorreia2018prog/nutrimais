@@ -37,3 +37,7 @@ function finalizarDieta() {
 function atualizarBotao() {
   document.getElementById('btnSeguinte').disabled = !dietaValida();
 }
+function selecionarCard(elemento, refeicao, alimento) {
+  elemento.classList.toggle('ativo');
+  selecionarAlimento(refeicao, alimento);
+}
