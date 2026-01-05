@@ -170,3 +170,12 @@ button {
 button:disabled {
   background: #ccc;
 }
+.card {
+  padding: 10px;
+  font-size: 14px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
