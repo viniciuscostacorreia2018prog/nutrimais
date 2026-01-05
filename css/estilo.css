@@ -211,3 +211,42 @@ button:disabled {
   border-color: #2ecc71;
   background: #eafaf1;
 }
+.grid-alimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 2px solid #eee;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #2ecc71;
+}
+
+.card.ativo {
+  background: #2ecc71;
+  color: #fff;
+  border-color: #2ecc71;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #27ae60;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}
