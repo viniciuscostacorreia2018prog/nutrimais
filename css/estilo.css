@@ -250,3 +250,22 @@ button:disabled {
   cursor: pointer;
   margin-top: 20px;
 }
+.card {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+/* ESTADO SELECIONADO */
+.card.ativo {
+  background-color: #2ecc71 !important;
+  color: #ffffff !important;
+  border-color: #2ecc71 !important;
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.4);
+}
