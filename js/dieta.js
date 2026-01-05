@@ -1,4 +1,4 @@
-let dieta = {
+const dieta = {
   cafeManha: [],
   almoco: [],
   cafeTarde: [],
@@ -7,11 +7,17 @@ let dieta = {
 };
 
 function selecionarAlimento(refeicao, alimento) {
-  if (!dieta[refeicao].includes(alimento)) {
+  const index = dieta[refeicao].indexOf(alimento);
+
+  if (index > -1) {
+    dieta[refeicao].splice(index, 1);
+  } else {
     dieta[refeicao].push(alimento);
   }
-  atualizarBotao();
+
+  event.currentTarget.classList.toggle('ativo');
 }
+
 function finalizarDieta() {
   localStorage.setItem('dietaUsuario', JSON.stringify(dieta));
   window.location.href = 'portal.html';
@@ -41,3 +47,10 @@ function selecionarCard(elemento, refeicao, alimento) {
   elemento.classList.toggle('ativo');
   selecionarAlimento(refeicao, alimento);
 }
+const dieta = {
+  cafeManha: [],
+  almoco: [],
+  cafeTarde: [],
+  janta: [],
+  doce: []
+};
