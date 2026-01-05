@@ -219,14 +219,15 @@ button:disabled {
 }
 
 .card {
-  background: #fff;
-  border: 2px solid #eee;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
+  background: #ffffff;
+  border: 2px solid #ddd;
+  padding: 14px;
+  border-radius: 12px;
   cursor: pointer;
+  text-align: center;
   font-size: 14px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
 .card:hover {
@@ -234,9 +235,10 @@ button:disabled {
 }
 
 .card.ativo {
-  background: #2ecc71;
-  color: #fff;
-  border-color: #2ecc71;
+  background-color: #2ecc71 !important;
+  color: #ffffff !important;
+  border-color: #2ecc71 !important;
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.4);
 }
 
 .btn {
@@ -249,23 +251,4 @@ button:disabled {
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
-}
-.card {
-  background: #ffffff;
-  border: 2px solid #ddd;
-  padding: 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-/* ESTADO SELECIONADO */
-.card.ativo {
-  background-color: #2ecc71 !important;
-  color: #ffffff !important;
-  border-color: #2ecc71 !important;
-  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.4);
 }
