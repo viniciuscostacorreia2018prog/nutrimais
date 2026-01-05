@@ -11,99 +11,71 @@
 
 <div class="container">
   <h1>Monte sua dieta</h1>
-  <p>Escolha os alimentos que você costuma consumir</p>
+  <p>Selecione quantos alimentos quiser</p>
 
-  <!-- TEMPLATE REFEIÇÃO -->
-  <div class="refeicao">
-
+  <!-- CAFÉ DA MANHÃ -->
+  <section>
     <h2>Café da manhã</h2>
-    <div class="grid-alimentos" id="cafeManha">
-      <div class="card" data-grupo="cafeManha">Ovos</div>
-      <div class="card" data-grupo="cafeManha">Pão integral</div>
-      <div class="card" data-grupo="cafeManha">Cuscuz</div>
-      <div class="card" data-grupo="cafeManha">Tapioca</div>
-      <div class="card" data-grupo="cafeManha">Queijo</div>
-      <div class="card" data-grupo="cafeManha">Iogurte</div>
-      <div class="card" data-grupo="cafeManha">Leite</div>
-      <div class="card" data-grupo="cafeManha">Aveia</div>
-      <div class="card" data-grupo="cafeManha">Frutas</div>
-      <div class="card" data-grupo="cafeManha">Whey</div>
+    <div class="grid" id="cafeManha"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'cafeManha')">+</button>
     </div>
+  </section>
 
-    <div class="add-alimento">
-      <input type="text" placeholder="Adicionar outro alimento">
-      <button onclick="adicionarAlimento(this,'cafeManha')">+</button>
-    </div>
-
-  </div>
-
-  <div class="refeicao">
+  <!-- ALMOÇO -->
+  <section>
     <h2>Almoço</h2>
-    <div class="grid-alimentos" id="almoco">
-      <div class="card" data-grupo="almoco">Arroz</div>
-      <div class="card" data-grupo="almoco">Feijão</div>
-      <div class="card" data-grupo="almoco">Frango grelhado</div>
-      <div class="card" data-grupo="almoco">Carne bovina</div>
-      <div class="card" data-grupo="almoco">Peixe</div>
-      <div class="card" data-grupo="almoco">Ovos</div>
-      <div class="card" data-grupo="almoco">Macarrão</div>
-      <div class="card" data-grupo="almoco">Batata</div>
-      <div class="card" data-grupo="almoco">Salada</div>
-      <div class="card" data-grupo="almoco">Legumes</div>
+    <div class="grid" id="almoco"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'almoco')">+</button>
     </div>
+  </section>
 
-    <div class="add-alimento">
-      <input type="text" placeholder="Adicionar outro alimento">
-      <button onclick="adicionarAlimento(this,'almoco')">+</button>
-    </div>
-  </div>
-
-  <div class="refeicao">
+  <!-- CAFÉ DA TARDE -->
+  <section>
     <h2>Café da tarde</h2>
-    <div class="grid-alimentos" id="cafeTarde">
-      <div class="card" data-grupo="cafeTarde">Pão integral</div>
-      <div class="card" data-grupo="cafeTarde">Ovos</div>
-      <div class="card" data-grupo="cafeTarde">Frango</div>
-      <div class="card" data-grupo="cafeTarde">Tapioca</div>
-      <div class="card" data-grupo="cafeTarde">Cuscuz</div>
-      <div class="card" data-grupo="cafeTarde">Queijo</div>
-      <div class="card" data-grupo="cafeTarde">Iogurte</div>
-      <div class="card" data-grupo="cafeTarde">Whey</div>
-      <div class="card" data-grupo="cafeTarde">Castanhas</div>
-      <div class="card" data-grupo="cafeTarde">Frutas</div>
+    <div class="grid" id="cafeTarde"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'cafeTarde')">+</button>
     </div>
+  </section>
 
-    <div class="add-alimento">
-      <input type="text" placeholder="Adicionar outro alimento">
-      <button onclick="adicionarAlimento(this,'cafeTarde')">+</button>
-    </div>
-  </div>
-
-  <div class="refeicao">
+  <!-- JANTA -->
+  <section>
     <h2>Janta</h2>
-    <div class="grid-alimentos" id="janta">
-      <div class="card" data-grupo="janta">Frango</div>
-      <div class="card" data-grupo="janta">Carne magra</div>
-      <div class="card" data-grupo="janta">Peixe</div>
-      <div class="card" data-grupo="janta">Ovos</div>
-      <div class="card" data-grupo="janta">Batata doce</div>
-      <div class="card" data-grupo="janta">Arroz</div>
-      <div class="card" data-grupo="janta">Legumes</div>
-      <div class="card" data-grupo="janta">Salada</div>
-      <div class="card" data-grupo="janta">Macarrão</div>
-      <div class="card" data-grupo="janta">Atum</div>
+    <div class="grid" id="janta"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'janta')">+</button>
     </div>
+  </section>
 
-    <div class="add-alimento">
-      <input type="text" placeholder="Adicionar outro alimento">
-      <button onclick="adicionarAlimento(this,'janta')">+</button>
-    </div>
-  </div>
-
-  <button class="btn" id="btnFinalizar">Ver dieta completa</button>
+  <button class="btn" onclick="finalizar()">Ver dieta completa</button>
 </div>
 
 <script>
+const base = {
+  cafeManha: [
+    "🥚 Ovos","🍞 Pão integral","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo",
+    "🥣 Aveia","🍌 Banana","🍎 Frutas","🥛 Leite","🥤 Whey"
+  ],
+  almoco: [
+    "🍚 Arroz","🫘 Feijão","🍗 Frango","🥩 Carne","🐟 Peixe",
+    "🥔 Batata","🍝 Macarrão","🥗 Salada","🥕 Legumes","🍳 Ovos"
+  ],
+  cafeTarde: [
+    "🍞 Pão","🥚 Ovo","🍗 Frango","🥞 Tapioca","🌽 Cuscuz",
+    "🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Frutas"
+  ],
+  janta: [
+    "🍗 Frango","🥩 Carne magra","🐟 Peixe","🍳 Ovos","🍠 Batata doce",
+    "🍚 Arroz","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"
+  ]
+};
+
 const dieta = {
   cafeManha: [],
   almoco: [],
@@ -111,41 +83,50 @@ const dieta = {
   janta: []
 };
 
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('card')) {
-    const grupo = e.target.dataset.grupo;
-    const valor = e.target.innerText;
-
-    e.target.classList.toggle('ativo');
-
-    if (dieta[grupo].includes(valor)) {
-      dieta[grupo] = dieta[grupo].filter(i => i !== valor);
-    } else {
-      dieta[grupo].push({
-        nome: valor,
-        macros: { proteina: 25, carbo: 25, gordura: 10 } // base equilibrada
-      });
-    }
-  }
+Object.keys(base).forEach(ref => {
+  const box = document.getElementById(ref);
+  base[ref].forEach(nome => {
+    const c = document.createElement("div");
+    c.className = "card";
+    c.innerText = nome;
+    c.onclick = () => toggle(ref, nome, c);
+    box.appendChild(c);
+  });
 });
 
-function adicionarAlimento(btn, grupo) {
+function toggle(ref, nome, el) {
+  const idx = dieta[ref].findIndex(i => i.nome === nome);
+  if (idx >= 0) {
+    dieta[ref].splice(idx,1);
+    el.classList.remove("ativo");
+  } else {
+    dieta[ref].push({
+      nome,
+      macros:{proteina:25,carbo:30,gordura:10}
+    });
+    el.classList.add("ativo");
+  }
+}
+
+function adicionar(btn, ref) {
   const input = btn.previousElementSibling;
   if (!input.value.trim()) return;
 
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.dataset.grupo = grupo;
-  card.innerText = input.value;
+  const nome = "🍽️ " + input.value;
+  const card = document.createElement("div");
+  card.className = "card ativo";
+  card.innerText = nome;
+  card.onclick = () => toggle(ref, nome, card);
 
-  document.getElementById(grupo).appendChild(card);
-  input.value = '';
+  document.getElementById(ref).appendChild(card);
+  dieta[ref].push({nome, macros:{proteina:20,carbo:30,gordura:10}});
+  input.value = "";
 }
 
-document.getElementById('btnFinalizar').onclick = () => {
-  localStorage.setItem('dietaSelecionada', JSON.stringify(dieta));
-  window.location.href = 'resultado.html';
-};
+function finalizar() {
+  localStorage.setItem("dietaSelecionada", JSON.stringify(dieta));
+  location.href = "resultado.html";
+}
 </script>
 
 </body>
