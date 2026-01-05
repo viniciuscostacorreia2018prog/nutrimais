@@ -6,15 +6,16 @@ const dieta = {
   doce: []
 };
 
-function selecionarAlimento(refeicao, alimento) {
+function selecionarAlimento(refeicao, alimento, elemento) {
   if (!dieta[refeicao].includes(alimento)) {
     dieta[refeicao].push(alimento);
-    event.target.classList.add('ativo');
+    elemento.classList.add('ativo');
   } else {
     dieta[refeicao] = dieta[refeicao].filter(a => a !== alimento);
-    event.target.classList.remove('ativo');
+    elemento.classList.remove('ativo');
   }
 }
+
 
 function finalizarDieta() {
   localStorage.setItem('dietaEscolhida', JSON.stringify(dieta));
