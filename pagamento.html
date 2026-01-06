@@ -9,63 +9,56 @@
 <body>
 
 <div class="container">
-  <h1>Finalizar pagamento</h1>
+  <h1>Pagamento</h1>
+  <p class="sub">Finalize para liberar seu acesso</p>
 
-  <div id="resumoPlano"></div>
+  <div class="checkout">
+    <h2 id="planoNome"></h2>
+    <p class="valor">Total: <strong id="planoPreco"></strong></p>
 
-  <h2>Forma de pagamento</h2>
+    <div class="metodos">
+      <label>
+        <input type="radio" name="pagamento" checked>
+        PIX
+      </label>
+      <label>
+        <input type="radio" name="pagamento">
+        Cartão de Crédito
+      </label>
+      <label>
+        <input type="radio" name="pagamento">
+        Cartão de Débito
+      </label>
+    </div>
 
-  <select id="formaPagamento">
-    <option value="">Selecione</option>
-    <option value="Pix">Pix</option>
-    <option value="Crédito">Cartão de crédito</option>
-    <option value="Débito">Cartão de débito</option>
-  </select>
+    <div class="aviso">
+      Ambiente seguro • Pagamento protegido
+    </div>
 
-  <h2>Criar acesso ao portal</h2>
-
-  <input type="email" id="email" placeholder="E-mail" required>
-  <input type="password" id="senha" placeholder="Senha" required>
-
-  <button class="btn" onclick="finalizarPagamento()">
-    Finalizar pagamento
-  </button>
+    <button class="btn" onclick="confirmarPagamento()">Confirmar pagamento</button>
+  </div>
 </div>
 
 <script>
-const plano = JSON.parse(localStorage.getItem('planoEscolhido'));
+const plano = JSON.parse(localStorage.getItem("planoEscolhido"));
 
-const resumo = document.getElementById('resumoPlano');
-resumo.innerHTML = `
-  <div class="box">
-    <strong>${plano.nome}</strong><br>
-    Valor: R$ ${plano.valor}<br>
-    Consultas com nutricionista: ${plano.consultas}<br>
-    Acesso por ${plano.validade} dias
-  </div>
-`;
+if (!plano) {
+  window.location.href = "planos.html";
+}
 
-function finalizarPagamento() {
-  const forma = document.getElementById('formaPagamento').value;
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
+document.getElementById("planoNome").innerText = plano.nome;
+document.getElementById("planoPreco").innerText = "R$ " + plano.preco.toFixed(2);
 
-  if (!forma || !email || !senha) {
-    alert('Preencha todos os campos');
-    return;
-  }
-
-  const usuario = {
-    email: email,
-    senha: senha,
-    plano: plano,
-    dataInicio: new Date().toISOString()
+function confirmarPagamento() {
+  const acesso = {
+    ativo: true,
+    inicio: new Date().toISOString(),
+    fim: new Date(Date.now() + 31*24*60*60*1000).toISOString(),
+    consultasRestantes: plano.consultas
   };
 
-  localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
-
-  alert('Pagamento realizado com sucesso!');
-  window.location.href = 'portal.html';
+  localStorage.setItem("acessoUsuario", JSON.stringify(acesso));
+  window.location.href = "portal.html";
 }
 </script>
 
