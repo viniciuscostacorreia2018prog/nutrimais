@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Seus dados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<div class="container-inicio">
+
+  <h1 class="titulo-principal">Vamos montar sua dieta</h1>
+  <p class="subtitulo">Preencha seus dados básicos</p>
+
+  <form id="formDados">
+
+    <input type="text" placeholder="Nome" required>
+    <input type="number" placeholder="Idade" required>
+    <input type="number" placeholder="Peso (kg)" required>
+    <input type="number" placeholder="Altura (cm)" required>
+
+    <select required>
+      <option value="">Sexo</option>
+      <option>Masculino</option>
+      <option>Feminino</option>
+    </select>
+
+    <select required>
+      <option value="">Objetivo</option>
+      <option>Emagrecimento</option>
+      <option>Hipertrofia+Emagrecimento</option>
+      <option>Ganho de massa+Hipertrofia</option>
+      <option>Manutenção</option>
+      <option>Ganho de massa</option>
+    </select>
+
+    <select required>
+      <option value="">Calorias diárias</option>
+      <option>1800 kcal</option>
+      <option>2000 kcal</option>
+      <option>2200 kcal</option>
+    </select>
+
+    <button type="submit" class="card-opcao destaque">
+      Continuar
+    </button>
+
+  </form>
+
+</div>
+
+<script>
+  document.getElementById("formDados").addEventListener("submit", function(e) {
+    e.preventDefault();
+    window.location.href = "alimentos.html";
+  });
+</script>
+
+</body>
+</html>
