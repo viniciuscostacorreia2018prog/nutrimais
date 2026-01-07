@@ -10,12 +10,12 @@
 <body>
 
 <div class="container">
-  <h1>Monte sua dieta</h1>
-  <p>Selecione quantos alimentos quiser</p>
+  <h1 class="titulo-central">Monte sua dieta</h1>
+<p class="subtitulo-central">Selecione quantos alimentos quiser</p>
 
   <!-- CAFÉ DA MANHÃ -->
   <section>
-    <h2>Café da manhã</h2>
+    <h2 class="titulo-refeicao">Café da manhã</h2>
     <div class="grid" id="cafeManha"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
@@ -25,7 +25,7 @@
 
   <!-- ALMOÇO -->
   <section>
-    <h2>Almoço</h2>
+    <h2 class="titulo-refeicao">Almoço</h2>
     <div class="grid" id="almoco"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
@@ -35,7 +35,7 @@
 
   <!-- CAFÉ DA TARDE -->
   <section>
-    <h2>Café da tarde</h2>
+    <h2 class="titulo-refeicao">Café da tarde</h2>
     <div class="grid" id="cafeTarde"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
@@ -45,11 +45,31 @@
 
   <!-- JANTA -->
   <section>
-    <h2>Janta</h2>
+    <h2 class="titulo-refeicao">Janta</h2>
     <div class="grid" id="janta"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'janta')">+</button>
+    </div>
+  </section>
+
+   <!-- Extra -->
+  <section>
+    <h2 class="titulo-refeicao">Extra</h2>
+    <div class="grid" id="Extra"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'Extra')">+</button>
+    </div>
+  </section>
+
+   <!-- Consegue com Facilidade -->
+  <section>
+    <h2 class="titulo-refeicao">Consegue com Facilidade</h2>
+    <div class="grid" id="Consegue com Facilidade"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'Consegue com Facilidade')">+</button>
     </div>
   </section>
 
@@ -73,14 +93,21 @@ const base = {
   janta: [
     "🍗 Frango","🥩 Carne magra","🐟 Peixe","🍳 Ovos","🍠 Batata doce",
     "🍚 Arroz","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"
-  ]
+  ],
+  Extra: [
+    "Brigadeiro","Pasta de Amendoim","Chocolate",
+  ],
+   Consegue com Facilidade: [
+    "Legumes","Frutas","Legumes","Suplemento"
 };
 
 const dieta = {
   cafeManha: [],
   almoco: [],
   cafeTarde: [],
-  janta: []
+  janta: [],
+  Extra: [],
+  Consegue com Facilidade: []
 };
 
 Object.keys(base).forEach(ref => {
