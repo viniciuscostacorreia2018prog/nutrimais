@@ -200,3 +200,14 @@ body {
   color: #777;
   margin-top: 2px;
 }
+/* BLOCO INTRO */
+.bloco-intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.icone-medidas {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
