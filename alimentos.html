@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Escolha seus alimentos</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/estilo.css">
+  <meta charset="UTF-8">
+  <title>Escolha seus alimentos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
-
 <body>
 
 <div class="container">
   <h1 class="titulo-central">Monte sua dieta</h1>
-<p class="subtitulo-central">Selecione quantos alimentos quiser</p>
+  <p class="subtitulo-central">Selecione os alimentos que deseja ter na sua dieta</p>
 
   <!-- CAFÉ DA MANHÃ -->
   <section>
@@ -53,23 +52,23 @@
     </div>
   </section>
 
-   <!-- Extra -->
+  <!-- Extra / Acompanhamento -->
   <section>
     <h2 class="titulo-refeicao">Extra</h2>
-    <div class="grid" id="Extra"></div>
+    <div class="grid" id="extra"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
-      <button onclick="adicionar(this,'Extra')">+</button>
+      <button onclick="adicionar(this,'extra')">+</button>
     </div>
   </section>
 
-   <!-- Consegue com Facilidade -->
+  <!-- Consegue com facilidade -->
   <section>
-    <h2 class="titulo-refeicao">Consegue com Facilidade</h2>
-    <div class="grid" id="Consegue com Facilidade"></div>
+    <h2 class="titulo-refeicao">facilidade</h2>
+    <div class="grid" id="facilidade"></div>
     <div class="add-box">
       <input placeholder="Adicionar alimento">
-      <button onclick="adicionar(this,'Consegue com Facilidade')">+</button>
+      <button onclick="adicionar(this,'facilidade')">+</button>
     </div>
   </section>
 
@@ -78,27 +77,12 @@
 
 <script>
 const base = {
-  cafeManha: [
-    "🥚 Ovos","🍞 Pão integral","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo",
-    "🥣 Aveia","🍌 Banana","🍎 Frutas","🥛 Leite","🥤 Whey"
-  ],
-  almoco: [
-    "🍚 Arroz","🫘 Feijão","🍗 Frango","🥩 Carne","🐟 Peixe",
-    "🥔 Batata","🍝 Macarrão","🥗 Salada","🥕 Legumes","🍳 Ovos"
-  ],
-  cafeTarde: [
-    "🍞 Pão","🥚 Ovo","🍗 Frango","🥞 Tapioca","🌽 Cuscuz",
-    "🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Frutas"
-  ],
-  janta: [
-    "🍗 Frango","🥩 Carne magra","🐟 Peixe","🍳 Ovos","🍠 Batata doce",
-    "🍚 Arroz","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"
-  ],
-  Extra: [
-    "🍫 Brigadeiro","🥜 Pasta de Amendoim","🍫 Chocolate"
-  ],
-   Consegue com Facilidade: [
-    "🥬 Legumes","🍎 Frutas","💊 Suplemento"
+  cafeManha: ["🥚 Ovos","🍞 Pão integral","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Aveia","🍌 Banana","🍎 Frutas","🥛 Leite","🥤 Whey"],
+  almoco: ["🍚 Arroz","🫘 Feijão","🍗 Frango","🥩 Carne","🐟 Peixe","🥔 Batata","🍝 Macarrão","🥗 Salada","🥕 Legumes","🍳 Ovos"],
+  cafeTarde: ["🍞 Pão","🥚 Ovo","🍗 Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Frutas"],
+  janta: ["🍗 Frango","🥩 Carne magra","🐟 Peixe","🍳 Ovos","🍠 Batata doce","🍚 Arroz","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"],
+  extra: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim"],
+  facilidade: ["🥬 Verduras","🍎 Frutas","💊 Suplementos"]
 };
 
 const dieta = {
@@ -106,10 +90,11 @@ const dieta = {
   almoco: [],
   cafeTarde: [],
   janta: [],
-  Extra: [],
-  Consegue com Facilidade: []
+  extra: [],
+  facilidade: []
 };
 
+// montar cards
 Object.keys(base).forEach(ref => {
   const box = document.getElementById(ref);
   base[ref].forEach(nome => {
@@ -121,36 +106,31 @@ Object.keys(base).forEach(ref => {
   });
 });
 
-function toggle(ref, nome, el) {
+function toggle(ref, nome, el){
   const idx = dieta[ref].findIndex(i => i.nome === nome);
-  if (idx >= 0) {
+  if(idx >= 0){
     dieta[ref].splice(idx,1);
     el.classList.remove("ativo");
   } else {
-    dieta[ref].push({
-      nome,
-      macros:{proteina:25,carbo:30,gordura:10}
-    });
+    dieta[ref].push({nome, macros:{proteina:25,carbo:30,gordura:10}});
     el.classList.add("ativo");
   }
 }
 
-function adicionar(btn, ref) {
+function adicionar(btn, ref){
   const input = btn.previousElementSibling;
-  if (!input.value.trim()) return;
-
+  if(!input.value.trim()) return;
   const nome = "🍽️ " + input.value;
   const card = document.createElement("div");
   card.className = "card ativo";
   card.innerText = nome;
   card.onclick = () => toggle(ref, nome, card);
-
   document.getElementById(ref).appendChild(card);
   dieta[ref].push({nome, macros:{proteina:20,carbo:30,gordura:10}});
   input.value = "";
 }
 
-function finalizar() {
+function finalizar(){
   localStorage.setItem("dietaSelecionada", JSON.stringify(dieta));
   location.href = "resultado.html";
 }
