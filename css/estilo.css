@@ -110,16 +110,6 @@ body {
   padding: 40px 20px 80px;
 }
 
-/* CARD DE CADA CAMPO */
-.campo {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  border: 1px solid #e5e5e5;
-}
-
 /* TEXTO DO LABEL */
 .campo label {
   display: block;
