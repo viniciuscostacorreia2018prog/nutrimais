@@ -317,3 +317,26 @@ body {
   font-size: 18px;
   font-weight: 600;
 }
+/* CENTRALIZAR TÍTULO E SUBTÍTULO DA PÁGINA DE ALIMENTOS */
+.titulo-central, .subtitulo-central {
+  text-align: center;
+  margin-bottom: 16px; /* ajuste se quiser mais espaçamento */
+  font-weight: 600; /* mantém parecido com páginas internas */
+}
+
+/* BARRA DE PROGRESSO NA PÁGINA DE ALIMENTOS */
+.progresso-alimentos {
+  width: 100%;
+  height: 6px;
+  background: #eaeaea;
+  border-radius: 6px;
+  margin: 24px 0;
+}
+
+.progresso-barra-alimentos {
+  height: 100%;
+  background: var(--verde-logo);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+  width: 0%; /* pode ser animada via JS quando necessário */
+}
