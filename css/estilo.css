@@ -189,20 +189,27 @@ body {
   opacity: 0.6;
 }
 /* BOTÃO GRANDE CONTINUAR */
-.botao-grande {
+.botao-principal {
   display: block;
   width: 100%;
-  background: var(--verde-logo);
-  color: #ffffff;
+  max-width: 420px;
+  margin: 32px auto 24px auto;
+  padding: 16px;
+  background: #1DB954; /* verde da logo */
+  color: #fff;
   text-align: center;
-  padding: 20px;
-  border-radius: 22px;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 14px;
   text-decoration: none;
-  margin-top: 32px;
-  box-shadow: 0 12px 30px rgba(29,185,84,0.4);
+  box-shadow: 0 8px 20px rgba(29,185,84,0.25);
+  transition: transform 0.2s ease;
 }
+
+.botao-principal:active {
+  transform: scale(0.97);
+}
+
 /* BARRA DE PROGRESSO */
 .progresso {
   width: 100%;
