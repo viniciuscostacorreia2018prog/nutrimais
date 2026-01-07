@@ -209,12 +209,16 @@ body {
   height: 6px;
   background: #eaeaea;
   border-radius: 6px;
-  margin-bottom: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
 }
 
 .progresso-barra {
   height: 100%;
-  background: #1DB954;
+  width: 33%; /* ex: 33% se for a 1ª etapa, ajustar dinamicamente no JS */
+  background: var(--verde-logo);
   border-radius: 6px;
   transition: width 0.4s ease;
 }
@@ -343,12 +347,12 @@ body {
   /* ==============================
    Regra com símbolo suave de dieta
    ============================== */
-.linha-simbolo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  gap: 8px;
+.progresso-barra {
+  height: 100%;
+  width: 33%; /* ex: 33% se for a 1ª etapa, ajustar dinamicamente no JS */
+  background: var(--verde-logo);
+  border-radius: 6px;
+  transition: width 0.4s ease;
 }
 
 .linha-simbolo-wrapper .linha {
@@ -359,15 +363,25 @@ body {
 }
 
 .linha-simbolo-wrapper .simbolo-dieta {
-  font-size: 20px;     /* tamanho sutil */
+  font-size: 24px;     /* MESMO TAMANHO da página anterior */
   color: var(--verde-logo);
-  opacity: 0.3;        /* bem suave */
+  opacity: 0.3;        /* suave */
 }
 
 /* Título e subtítulo centralizados (mantendo estilo anterior) */
-.titulo-central, .subtitulo-central {
+.titulo-central {
   text-align: center;
-  margin: 0 auto 16px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 12px;
+}
+
+.subtitulo-central {
+  text-align: center;
+  font-size: 16px;
+  color: #444444;
+  margin-bottom: 36px;
 }
 
 /* Barra de progresso no topo (mesmo estilo da página anterior) */
