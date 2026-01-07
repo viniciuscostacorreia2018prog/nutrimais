@@ -243,31 +243,35 @@ body {
 .campo select {
   text-align: center;
 }
-/* === CAMPOS NO MODELO WHATSAPP / MODERNO === */
-.campo {
+/* ===== CAMPOS MODELO WHATSAPP ===== */
+.campo-whatsapp {
   background: transparent;
   border: none;
-  box-shadow: none;
-  padding: 10px 0;
-  margin-bottom: 22px;
   border-bottom: 1.5px solid #dcdcdc;
+  padding: 10px 0;
+  margin-bottom: 24px;
 }
 
-.campo label {
+.campo-whatsapp label {
+  display: block;
   font-size: 13px;
   color: #777;
   margin-bottom: 4px;
 }
 
-.campo input,
-.campo select {
+.campo-whatsapp input,
+.campo-whatsapp select {
+  width: 100%;
+  border: none;
+  background: transparent;
   font-size: 17px;
   font-weight: 600;
+  color: #111;
   padding: 6px 0;
+  outline: none;
 }
 
-/* FOCO (quando clicar) */
-.campo input:focus,
-.campo select:focus {
+.campo-whatsapp input:focus,
+.campo-whatsapp select:focus {
   border-bottom: 2px solid var(--verde-logo);
 }
