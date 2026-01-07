@@ -253,3 +253,31 @@ body {
 .campo select {
   text-align: center;
 }
+/* === CAMPOS NO MODELO WHATSAPP / MODERNO === */
+.campo {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 10px 0;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid #dcdcdc;
+}
+
+.campo label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.campo input,
+.campo select {
+  font-size: 17px;
+  font-weight: 600;
+  padding: 6px 0;
+}
+
+/* FOCO (quando clicar) */
+.campo input:focus,
+.campo select:focus {
+  border-bottom: 2px solid var(--verde-logo);
+}
