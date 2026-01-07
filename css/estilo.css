@@ -58,12 +58,6 @@ body {
   transform: scale(1.02);
 }
 
-/* BOTÃO PRINCIPAL (VERDE, MAS TEXTO ESCURO) */
-.card-opcao.destaque {
-  background: #eafaf1;
-  border: 1px solid #bfead3;
-}
-
 /* TEXTOS DOS BOTÕES */
 .titulo-opcao {
   display: block;
@@ -108,4 +102,38 @@ body {
 .card-opcao.destaque .titulo-opcao,
 .card-opcao.destaque .descricao-opcao {
   color: #ffffff;
+}
+/* CONTAINER PADRÃO DAS PÁGINAS INTERNAS */
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* CAMPOS ESTILO CARD FLUTUANTE */
+.campo {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid #e5e5e5;
+}
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+  outline: none;
+  background: transparent;
 }
