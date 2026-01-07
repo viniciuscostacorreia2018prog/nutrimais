@@ -219,3 +219,8 @@ body {
   background: var(--verde-logo);
   border-radius: 10px;
 }
+/* BOTÃO FINAL ESTILO HOME */
+.botao-final {
+  margin-top: 36px;
+  text-align: center;
+}
