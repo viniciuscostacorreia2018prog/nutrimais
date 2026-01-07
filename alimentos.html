@@ -5,13 +5,173 @@
   <title>Escolha seus alimentos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/estilo.css">
+  <style>
+    /* CENTRALIZAR TÍTULO, SUBTÍTULO E ÍCONE SOBREPOSTO */
+    .titulo-central-wrapper {
+      position: relative;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .icone-dieta {
+      font-size: 120px;
+      color: var(--verde-logo);
+      opacity: 0.08;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .titulo-central {
+      position: relative;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      z-index: 1;
+    }
+
+    .subtitulo-central {
+      position: relative;
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 24px;
+      z-index: 1;
+    }
+
+    /* GRID DE CARDS DE ALIMENTOS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* CARD INDIVIDUAL */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 12px 8px;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      border-color: var(--verde-logo);
+    }
+
+    .card.ativo {
+      background-color: var(--verde-logo);
+      color: #fff;
+      border-color: var(--verde-logo);
+    }
+
+    .titulo-refeicao {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* MELHORAR BOTÃO ADICIONAR ALIMENTO */
+    .add-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+
+    .add-box input {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      flex: 1;
+      text-align: center;
+    }
+
+    .add-box button {
+      background-color: var(--verde-logo);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .add-box button:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    /* BOTÃO "VER MINHA DIETA AGORA" ESTILO PÁGINA ANTERIOR */
+    .btn-ver-dieta {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 24px auto;
+      padding: 14px;
+      background-color: var(--verde-logo);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 40px;
+      box-shadow: 0 12px 30px rgba(29, 185, 84, 0.4);
+      text-decoration: none;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-ver-dieta:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    /* BARRA DE PROGRESSO */
+    .progresso-alimentos {
+      width: 100%;
+      height: 6px;
+      background: #eaeaea;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    .progresso-barra-alimentos {
+      height: 100%;
+      width: 0%;
+      background: var(--verde-logo);
+      border-radius: 6px;
+      transition: width 0.3s ease;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Título centralizado -->
-  <h1 class="titulo-principal">Monte sua dieta</h1>
-  <p class="subtitulo">Selecione os alimentos que deseja ter na sua dieta</p>
+  <!-- TÍTULO COM ÍCONE SOBREPOSTO -->
+  <div class="titulo-central-wrapper">
+    <span class="icone-dieta">🥗</span>
+    <h1 class="titulo-central">Monte sua dieta</h1>
+    <p class="subtitulo-central">Selecione os alimentos que deseja ter na sua dieta</p>
+  </div>
+
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progresso-alimentos">
+    <div class="progresso-barra-alimentos"></div>
+  </div>
 
   <!-- CAFÉ DA MANHÃ -->
   <section>
@@ -73,9 +233,8 @@
     </div>
   </section>
 
-  <!-- Novo botão estilo Continuar -->
-  <a class="botao-continuar" onclick="finalizar()">Ver minha dieta agora</a>
-
+  <!-- BOTÃO VER MINHA DIETA AGORA -->
+  <button class="btn-ver-dieta" onclick="finalizar()">Ver minha dieta agora</button>
 </div>
 
 <script>
@@ -97,7 +256,7 @@ const dieta = {
   facilidade: []
 };
 
-// montar cards
+// Montar cards
 Object.keys(base).forEach(ref => {
   const box = document.getElementById(ref);
   base[ref].forEach(nome => {
@@ -118,6 +277,7 @@ function toggle(ref, nome, el){
     dieta[ref].push({nome, macros:{proteina:25,carbo:30,gordura:10}});
     el.classList.add("ativo");
   }
+  atualizarProgresso();
 }
 
 function adicionar(btn, ref){
@@ -131,11 +291,24 @@ function adicionar(btn, ref){
   document.getElementById(ref).appendChild(card);
   dieta[ref].push({nome, macros:{proteina:20,carbo:30,gordura:10}});
   input.value = "";
+  atualizarProgresso();
 }
 
 function finalizar(){
   localStorage.setItem("dietaSelecionada", JSON.stringify(dieta));
   location.href = "resultado.html";
+}
+
+// FUNÇÃO PARA ATUALIZAR BARRA DE PROGRESSO
+function atualizarProgresso(){
+  let totalCards = 0;
+  let selecionados = 0;
+  Object.keys(dieta).forEach(ref => {
+    totalCards += document.getElementById(ref).children.length;
+    selecionados += dieta[ref].length;
+  });
+  const perc = totalCards ? (selecionados/totalCards)*100 : 0;
+  document.querySelector('.progresso-barra-alimentos').style.width = perc+'%';
 }
 </script>
 
