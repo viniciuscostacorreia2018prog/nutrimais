@@ -224,3 +224,8 @@ body {
   margin-top: 36px;
   text-align: center;
 }
+.form-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
