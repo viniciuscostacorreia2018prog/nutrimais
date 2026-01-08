@@ -3,52 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Carregando sua dieta</title>
-
-  <!-- CSS CORRETO -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="carregando.css">
 </head>
 <body>
 
-  <!-- BARRA -->
+  <!-- BARRA DE PROGRESSO -->
   <div class="barra-container">
     <div class="barra-progresso" id="barraProgresso"></div>
   </div>
 
-  <div class="container">
+  <!-- LOADING CENTRAL -->
+  <div class="loading-container" id="loading">
+    <h1>
+      Carregando sua dieta<span id="dots">...</span>
+    </h1>
+  </div>
 
-    <!-- LOADING -->
-    <div id="loading">
-      <h1>Carregando sua dieta<span class="dots">...</span></h1>
-    </div>
+  <!-- RESUMO -->
+  <div class="resumo hidden" id="resumo">
+    <div class="card-resumo">
 
-    <!-- RESUMO -->
-    <div id="resumo" class="hidden">
-      <div class="card-resumo">
+      <img src="logo-nutrimais.png" class="logo-resumo" alt="Nutri+">
 
-        <img src="logo-nutrimais.png" class="logo-resumo">
+      <h2>Resumo da sua dieta</h2>
 
-        <h2>Resumo da sua dieta</h2>
+      <p><strong>Dados:</strong></p>
+      <p id="dadosUsuario"></p>
 
-        <p><strong>Dados:</strong></p>
-        <p id="dadosUsuario"></p>
+      <p class="objetivo">
+        <strong>Objetivo:</strong>
+        <span id="objetivoUsuario"></span>
+      </p>
 
-        <p class="objetivo">
-          <strong>Objetivo:</strong>
-          <span id="objetivoUsuario"></span>
-        </p>
+      <p><strong>Alimentos selecionados:</strong></p>
+      <ul id="listaAlimentos"></ul>
 
-        <p><strong>Alimentos selecionados:</strong></p>
-        <ul id="listaAlimentos"></ul>
+      <button class="btn-principal" onclick="irParaPlanos()">
+        Gerar Dieta
+      </button>
 
-        <button class="btn-principal" onclick="irParaPlanos()">
-          Gerar Dieta
-        </button>
-
-      </div>
     </div>
   </div>
 
-  <!-- JS CORRETO -->
   <script src="carregando.js"></script>
 </body>
 </html>
