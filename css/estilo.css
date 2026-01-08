@@ -282,9 +282,9 @@ body {
 /* GRID DE CARDS DE ALIMENTOS */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
-  gap: 12px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center; /* 🔥 centraliza os cards */
 }
 
 /* CARD INDIVIDUAL */
@@ -409,15 +409,32 @@ body {
 }
 /* CARD GRANDE DA REFEIÇÃO */
 .bloco-refeicao {
+  width: 100%;
   background: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 20px 16px;
-  margin-bottom: 28px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  margin-bottom: 32px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.07);
 }
 
 /* TÍTULO DENTRO DO CARD */
 .bloco-refeicao .titulo-refeicao {
   margin-bottom: 16px;
+}
+@media (max-width: 480px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+    gap: 12px;
+  }
+
+  .card {
+    width: 100%;          /* ocupa a coluna inteira */
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+
+  .bloco-refeicao {
+    padding: 18px 14px;
+  }
 }
