@@ -22,34 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function carregarResumo() {
 
-  // ===== TENTA PEGAR DADOS (TODAS AS VARIAÇÕES) =====
-  const dadosUsuario =
-    JSON.parse(localStorage.getItem("dadosUsuario")) ||
-    JSON.parse(localStorage.getItem("dadosFormulario")) ||
-    {};
+ const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario")) || {};
+  const objetivoUsuario = localStorage.getItem("objetivoSelecionado") || "";
+  const dietaSelecionada = JSON.parse(localStorage.getItem("dietaSelecionada")) || {};
 
-  const objetivoUsuario =
-    localStorage.getItem("objetivoSelecionado") ||
-    localStorage.getItem("objetivo") ||
-    "";
-
-  const dietaSelecionada =
-    JSON.parse(localStorage.getItem("dietaSelecionada")) ||
-    JSON.parse(localStorage.getItem("alimentosSelecionados")) ||
-    {};
-
-  // ===== DADOS =====
-  const dadosTexto = `
-    Peso: ${dadosUsuario.peso || "-"} |
-    Altura: ${dadosUsuario.altura || "-"} |
-    Idade: ${dadosUsuario.idade || "-"}
-  `;
-
-  document.getElementById("dadosUsuario").innerText = dadosTexto;
+// ===== DADOS (NOME + PESO + ALTURA + IDADE) =====
+  const dadosEl = document.getElementById("dadosUsuario");
+  if (dadosEl) {
+    dadosEl.innerHTML = `
+      ${dadosUsuario.nome ? `<strong>${dadosUsuario.nome}</strong><br>` : ""}
+      Peso: ${dadosUsuario.peso || "-"} |
+      Altura: ${dadosUsuario.altura || "-"} |
+      Idade: ${dadosUsuario.idade || "-"}
+    `;
+  }
 
   // ===== OBJETIVO =====
-  document.getElementById("objetivoUsuario").innerText =
-    objetivoUsuario || "-";
+  const objetivoEl = document.getElementById("objetivoUsuario");
+  if (objetivoEl) {
+    objetivoEl.innerText = objetivoUsuario || "-";
+  }
 
   // ===== ALIMENTOS =====
   const lista = document.getElementById("listaAlimentos");
