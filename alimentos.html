@@ -136,7 +136,7 @@
   </section>
 
   <!-- BOTÃO FINAL -->
-  <button class="btn-ver-dieta" onclick="finalizar()">Ver minha dieta agora</button>
+  <button class="btn-ver-dieta" onclick="irParaCarregamento()">Ver minha dieta agora</button>
 </div>
 
 <script>
@@ -193,5 +193,11 @@ const totalPaginas = 4;
 const perc = (paginaAtual / totalPaginas) * 100;
 document.getElementById('barraProgresso').style.width = perc + '%';
 </script>
+ <script>
+  function irParaCarregamento() {
+    window.location.href = "carregando.html";
+  }
+</script>
+
 </body>
 </html>
