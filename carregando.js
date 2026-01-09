@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== BARRA DE PROGRESSO (VISUAL NÃO ALTERADO) =====
+  // ===== BARRA DE PROGRESSO (NÃO ALTERADA) =====
   const barra = document.getElementById("barraProgresso");
   if (barra) barra.style.width = "85%";
 
-  // ===== ANIMAÇÃO DOS PONTOS =====
+  // ===== ANIMAÇÃO DOS PONTOS (NÃO ALTERADA) =====
   const dots = document.getElementById("dots");
   let count = 0;
   setInterval(() => {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dots) dots.textContent = ".".repeat(count);
   }, 500);
 
-  // ===== SIMULA CARREGAMENTO =====
+  // ===== SIMULA CARREGAMENTO (NÃO ALTERADO) =====
   setTimeout(() => {
     const loading = document.getElementById("loading");
     const resumo = document.getElementById("resumo");
@@ -20,46 +20,50 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loading) loading.style.display = "none";
     if (resumo) resumo.classList.remove("hidden");
 
-    carregarResumo();
-  }, 1000); // pode manter 10s se quiser
+    preencherResumo(); // ✅ nome correto
+  }, 1000);
 });
 
-function carregarResumo() {
+function preencherResumo() {
+  const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
+  const objetivo = localStorage.getItem("objetivoSelecionado");
+  const dieta = JSON.parse(localStorage.getItem("dietaSelecionada"));
 
-  const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario")) || {};
-  const objetivoUsuario = localStorage.getItem("objetivoSelecionado") || "";
-  const dietaSelecionada = JSON.parse(localStorage.getItem("dietaSelecionada")) || {};
+  if (!dadosUsuario || !objetivo || !dieta) {
+    console.error("Dados ausentes no localStorage");
+    return;
+  }
 
-  // ===== DADOS (NOME ACIMA DO PESO) =====
-  const dadosEl = document.getElementById("dadosResumo");
+  // ===== DADOS =====
+  const dadosEl = document.getElementById("dadosUsuario");
   if (dadosEl) {
     dadosEl.innerHTML = `
       ${dadosUsuario.nome ? `<strong>${dadosUsuario.nome}</strong><br>` : ""}
-      Peso: ${dadosUsuario.peso || "-"} |
-      Altura: ${dadosUsuario.altura || "-"} |
-      Idade: ${dadosUsuario.idade || "-"}
+      Peso: ${dadosUsuario.peso} |
+      Altura: ${dadosUsuario.altura} |
+      Idade: ${dadosUsuario.idade}
     `;
   }
 
   // ===== OBJETIVO =====
-  const objetivoEl = document.getElementById("objetivoTexto");
+  const objetivoEl = document.getElementById("objetivoUsuario");
   if (objetivoEl) {
-    objetivoEl.innerText = objetivoUsuario || "-";
+    objetivoEl.textContent = objetivo;
   }
 
   // ===== ALIMENTOS =====
-  const lista = document.getElementById("alimentosResumo");
+  const lista = document.getElementById("listaAlimentos");
   if (!lista) return;
 
   lista.innerHTML = "";
   let temAlimentos = false;
 
-  Object.values(dietaSelecionada).forEach(refeicao => {
+  Object.values(dieta).forEach(refeicao => {
     if (Array.isArray(refeicao)) {
       refeicao.forEach(item => {
         temAlimentos = true;
         const li = document.createElement("li");
-        li.innerText = item.nome || item;
+        li.textContent = item;
         lista.appendChild(li);
       });
     }
@@ -67,7 +71,7 @@ function carregarResumo() {
 
   if (!temAlimentos) {
     const li = document.createElement("li");
-    li.innerText = "Nenhum alimento selecionado.";
+    li.textContent = "Nenhum alimento selecionado.";
     lista.appendChild(li);
   }
 }
