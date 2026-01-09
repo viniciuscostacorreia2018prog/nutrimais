@@ -166,9 +166,14 @@ Object.keys(base).forEach(ref => {
 });
 
 function toggle(ref,nome,el){
-  const idx = dieta[ref].findIndex(i=>i.nome===nome);
-  if(idx>=0){ dieta[ref].splice(idx,1); el.classList.remove("ativo"); }
-  else { dieta[ref].push({nome,macros:{proteina:25,carbo:30,gordura:10}}); el.classList.add("ativo"); }
+  const idx = dieta[ref].indexOf(nome);
+  if(idx>=0){
+    dieta[ref].splice(idx,1);
+    el.classList.remove("ativo");
+  } else {
+   dieta[ref].push(nome);
+   el.classList.add("ativo");
+  }
 }
 
 function adicionar(btn,ref){
@@ -180,7 +185,7 @@ function adicionar(btn,ref){
   card.innerText = nome;
   card.onclick = ()=>toggle(ref,nome,card);
   document.getElementById(ref).appendChild(card);
-  dieta[ref].push({nome,macros:{proteina:20,carbo:30,gordura:10}});
+  dieta[ref].push(nome);
   input.value="";
 }
 
