@@ -79,3 +79,7 @@ function preencherResumo() {
 function irParaPlanos() {
   window.location.href = "planos.html";
 }
+const titulo = document.querySelector(".card-resumo h2");
+if (titulo) {
+  titulo.innerText = "Tudo pronto, confirme e gere a dieta!";
+}
