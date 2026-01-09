@@ -455,3 +455,113 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 6px 16px;
 }
+
+/* ===== Página de Planos ===== */
+
+/* ===== FUNDO ANIMADO ===== */
+.fundo-planos {
+  background: linear-gradient(120deg, #ffffff, #e7f6ee, #ffffff);
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== LAYOUT ===== */
+.container-planos {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.logo-planos {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.grid-planos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* ===== CARD ===== */
+.card-plano {
+  background: #6f7c78;
+  color: #fff;
+  border-radius: 24px;
+  padding: 30px 24px 90px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.card-plano.recomendado {
+  background: #7b6a44;
+}
+
+.card-plano.destaque {
+  background: #4f6b56;
+}
+
+.card-plano h2 {
+  font-size: 26px;
+  margin: 20px 0;
+}
+
+/* ===== TAG ===== */
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.tag.verde {
+  background: #6fd18c;
+  color: #114b2d;
+}
+
+/* ===== PREÇO ===== */
+.preco-antigo {
+  text-decoration: line-through;
+  opacity: .7;
+}
+
+.preco {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.mensal {
+  font-size: 14px;
+  opacity: .9;
+}
+
+/* ===== LISTA ===== */
+.card-plano ul {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.card-plano li {
+  margin-bottom: 8px;
+}
+
+/* ===== BOTÃO ===== */
+.flutuante {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
