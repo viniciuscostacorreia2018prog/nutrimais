@@ -5,6 +5,12 @@ function validar() {
   const tudoPreenchido = [...inputs].every(i => i.value.trim() !== "");
   btn.disabled = !tudoPreenchido;
 }
+  if (tudoPreenchido) {
+    btn.classList.add("ativo");
+  } else {
+    btn.classList.remove("ativo");
+  }
+}
 
 inputs.forEach(i => {
   i.addEventListener("input", validarCampos);
