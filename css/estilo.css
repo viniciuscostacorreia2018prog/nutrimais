@@ -118,54 +118,20 @@ body {
 
 /* Página 1 CARD DESTAQUE – SOU NOVO NA NUTRI+ (IA GRADIENTE ANIMADO) */
 .card-opcao.destaque {
-  position: relative;
-  background: linear-gradient(
-    120deg,
-    #7efca6,
-    #a6f7c1,
-    #5de0b2,
-    #7efca6
-  );
-  background-size: 300% 300%;
-  animation: gradienteIA 6s ease infinite;
-
-  border: none;
-  border-radius: 18px;
-
+  background: #ffffff;
+  border: 1.5px solid rgba(90, 200, 140, 0.6);
   box-shadow:
-    0 0 12px rgba(126, 252, 166, 0.6),
-    0 0 26px rgba(166, 247, 193, 0.45);
-
-  color: #0f2d1f;
-  overflow: hidden;
+    0 0 0 rgba(90, 200, 140, 0),
+    0 8px 22px rgba(0,0,0,0.06);
+  color: #1a1a1a;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* brilho interno estilo IA */
-.card-opcao.destaque::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at top left,
-    rgba(255, 255, 255, 0.35),
-    transparent 60%
-  );
-  pointer-events: none;
-}
-
-/* garante texto acima do brilho */
-.card-opcao.destaque .titulo-opcao,
-.card-opcao.destaque .descricao-opcao {
-  position: relative;
-  z-index: 1;
-  color: #0f2d1f;
-}
-
-/* animação do gradiente */
-@keyframes gradienteIA {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.card-opcao.destaque:hover {
+  border-color: rgba(90, 200, 140, 0.9);
+  box-shadow:
+    0 0 12px rgba(90, 200, 140, 0.35),
+    0 12px 26px rgba(0,0,0,0.08);
 }
 
 /* Container da onda */
