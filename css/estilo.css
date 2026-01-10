@@ -560,3 +560,23 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
+.nome-usuario {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.linha-dados {
+  margin: 6px 0 14px;
+  font-size: 14px;
+  color: #555;
+}
+
+.objetivo-box {
+  background: #e7f6ee;
+  color: #1db954;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
