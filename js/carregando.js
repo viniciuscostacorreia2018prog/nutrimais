@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ===== OBJETIVO EM DESTAQUE =====
-    if (objetivoDiv) {
-      objetivoDiv.innerHTML = `
-        <strong>Objetivo:</strong> ${objetivoUsuario}<br>
-        <small>Calorias ideais estimadas: ${caloriasIdeais} kcal/dia</small>
-      `;
-    }
+    objetivoDiv.innerHTML = `
+  <div class="objetivo-destaque">
+    Objetivo: ${objetivoUsuario}
+  </div>
+  <small>Calorias ideais estimadas: ${caloriasIdeais} kcal/dia</small>
+`;
 
     // ===== ALIMENTOS (TODOS JUNTOS) =====
     let alimentos = [];
