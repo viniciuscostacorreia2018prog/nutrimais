@@ -5,24 +5,26 @@ body {
 }
 
 /* BARRA DE PROGRESSO */
-. progresso {
-  largura :  100 % ;
-  altura :  6 px ;
-  fundo :  #eaeaea ;​
-  raio-da-borda :  6 px ;
-  posição : fixa;
-  topo :  0 ;
-  esquerda :  0 ;
-  Índice z :  20 ;
+.progress {
+  width: 100%;
+  height: 6px;
+  background: #eaeaea;
+  border-radius: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
 }
 
-. progresso-barra {
-  altura :  100 % ;
-  largura :  90 % ; /* ex: 33% se para a 1ª etapa, ajuste dinamicamente no JS */
-  plano de fundo :  var ( --verde-logo );
-  raio-da-borda :  6 px ;
-  transição : largura 0,4 s facilidade;
+/* barra que cresce dinamicamente */
+.progress-bar {
+  height: 100%;
+  width: 90%; /* ex: 33% se for a 1ª etapa, pode ajustar via JS */
+  background: var(--verde-logo); /* cor da logo */
+  border-radius: 6px;
+  transition: width 0.4s ease;
 }
+
 
 /* LOADING CENTRALIZADO */
 .loading-container {
