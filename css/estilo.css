@@ -588,20 +588,6 @@ body {
 
 /* Teste de FUndo */
 
-body {
-    background: linear-gradient(-45deg, #cce8c9, #e6f4e6, #ffffff, #dff7df);
-    background-size: 400% 400%;
-    animation: gradientFlex 25s ease infinite;
-}
-
-@keyframes gradientFlex {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 50% 60%; }
-    50% { background-position: 100% 50%; }
-    75% { background-position: 50% 40%; }
-    100% { background-position: 0% 50%; }
-}
-
 body::before {
     content: "";
     position: fixed;
@@ -612,16 +598,4 @@ body::before {
     animation: gradientFlex 25s ease infinite;
     filter: blur(40px); /* suaviza o gradiente, deixando mais profissional */
     z-index: -1;        /* atrás de todo conteúdo */
-}
-
-body {
-    background: conic-gradient(from 0deg, #cce8c9, #e6f4e6, #ffffff, #dff7df, #cce8c9);
-    background-size: 300% 300%;
-    animation: conicFlex 30s linear infinite;
-}
-
-@keyframes conicFlex {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 50% 50%; }
-    100% { background-position: 0% 0%; }
 }
