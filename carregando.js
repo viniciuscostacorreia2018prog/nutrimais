@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loading) loading.style.display = "none";
     if (resumo) resumo.classList.remove("hidden");
 
-    preencherResumo();
+    preencherResumo(); // ✅ nome correto
   }, 1000);
 });
 
@@ -34,55 +34,15 @@ function preencherResumo() {
     return;
   }
 
-  // ===== TÍTULO =====
-  const titulo = document.querySelector(".card-resumo h2");
-  if (titulo) {
-    titulo.innerText = "Tudo pronto, confirme e gere a dieta!";
-  }
-
-  // ===== DADOS (SEM MEXER NO VISUAL) =====
-  if (document.getElementById("linhaNome") && dadosUsuario.nome) {
-    document.getElementById("linhaNome").textContent = dadosUsuario.nome;
-  }
-
-  if (document.getElementById("linhaPeso")) {
-    document.getElementById("linhaPeso").textContent =
-      `Peso: ${dadosUsuario.peso}`;
-  }
-
-  if (document.getElementById("linhaAltura")) {
-    document.getElementById("linhaAltura").textContent =
-      `Altura: ${dadosUsuario.altura}`;
-  }
-
-  if (document.getElementById("linhaIdade")) {
-    document.getElementById("linhaIdade").textContent =
-      `Idade: ${dadosUsuario.idade}`;
-  }
-
-  // ===== FRASE DO IMC (ABAIXO DOS DADOS) =====
-  if (dadosUsuario.peso && dadosUsuario.altura) {
-    const peso = Number(dadosUsuario.peso);
-    const alturaM = Number(dadosUsuario.altura) / 100;
-    const imc = peso / (alturaM * alturaM);
-
-    let status = "";
-    if (imc < 18.5) status = "abaixo do peso ideal";
-    else if (imc < 25) status = "no peso ideal";
-    else status = "acima do peso ideal";
-
-    if (!document.getElementById("infoImc")) {
-      const info = document.createElement("p");
-      info.id = "infoImc";
-      info.style.marginTop = "6px";
-      info.style.fontSize = "14px";
-      info.style.color = "#555";
-      info.textContent =
-        `Temos suas medidas e você está ${status}. Vamos à sua dieta completa abaixo.`;
-
-      const dadosContainer = document.getElementById("dadosUsuario");
-      if (dadosContainer) dadosContainer.appendChild(info);
-    }
+  // ===== DADOS =====
+  const dadosEl = document.getElementById("dadosUsuario");
+  if (dadosEl) {
+    dadosEl.innerHTML = `
+      ${dadosUsuario.nome ? `<strong>${dadosUsuario.nome}</strong><br>` : ""}
+      Peso: ${dadosUsuario.peso} |
+      Altura: ${dadosUsuario.altura} |
+      Idade: ${dadosUsuario.idade}
+    `;
   }
 
   // ===== OBJETIVO =====
@@ -119,4 +79,27 @@ function preencherResumo() {
 function irParaPlanos() {
   window.location.href = "planos.html";
 }
+const titulo = document.querySelector(".card-resumo h2");
+if (titulo) {
+  titulo.innerText = ""Tudo pronto, confirme e gere a dieta!"";
+}
+if (dadosUsuario && dadosUsuario.peso && dadosUsuario.altura) {
+  const peso = Number(dadosUsuario.peso);
+  const alturaM = Number(dadosUsuario.altura) / 100;
 
+  const imc = peso / (alturaM * alturaM);
+  let status = "";
+
+  if (imc < 18.5) status = "abaixo do peso ideal";
+  else if (imc < 25) status = "no peso ideal";
+  else status = "acima do peso ideal";
+
+  const info = document.createElement("p");
+  info.style.marginTop = "6px";
+  info.style.fontSize = "14px";
+  info.style.color = "#555";
+  info.innerText = `Temos suas medidas e você está ${status}. Vamos à sua dieta completa abaixo.`;
+
+  const dadosEl = document.getElementById("dadosUsuario");
+  if (dadosEl) dadosEl.after(info);
+}
