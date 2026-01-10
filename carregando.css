@@ -96,3 +96,15 @@ body {
 .card-resumo * {
   text-align: center;
 }
+
+.card-resumo p,
+.card-resumo h2,
+.card-resumo h3,
+#linhaDados,
+#objetivoResumo {
+  margin: 6px 0;
+}
+
+#objetivoResumo {
+  margin-top: 8px;
+}
