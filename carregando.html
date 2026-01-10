@@ -12,12 +12,8 @@
   <div class="barra-container">
     <div class="barra-progresso" id="barraProgresso"></div>
   </div>
+  
  <script>
-  // ====== COLETA DE DADOS ======
-  const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario")) || {};
-  const objetivoUsuario = localStorage.getItem("objetivoSelecionado") || "";
-  const dietaSelecionada = JSON.parse(localStorage.getItem("dietaSelecionada")) || {};
-
   // ====== NOME NO RESUMO ======
   const nomeSpan = document.getElementById("nomeUsuario");
   if (nomeSpan && dadosUsuario.nome) {
@@ -86,7 +82,7 @@
 </div>
 </div>
 
-<script src="carregando.js"></script>
+<script src="js/carregando.js"></script>
 </body>
 </html>
 
