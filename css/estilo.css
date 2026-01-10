@@ -119,31 +119,36 @@ body {
 /* Página 1 CARD DESTAQUE – SOU NOVO NA NUTRI+ (IA GRADIENTE ANIMADO) */
 .card-opcao.destaque {
   background: #ffffff;
-  border: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  position: relative;
+  border: 1.5px solid rgba(90, 200, 140, 0.6);
+  box-shadow:
+    0 0 0 rgba(90, 200, 140, 0),
+    0 8px 22px rgba(0,0,0,0.06);
+  color: #1a1a1a;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.card-opcao.destaque::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    #5de0b2,
-    #7efca6,
-    #5de0b2
-  );
-  animation: linhaIA 3s linear infinite;
+.card-opcao.destaque:hover {
+  border-color: rgba(90, 200, 140, 0.9);
+  box-shadow:
+    0 0 12px rgba(90, 200, 140, 0.35),
+    0 12px 26px rgba(0,0,0,0.08);
 }
+
 
 @keyframes linhaIA {
   0% { background-position: 0%; }
   100% { background-position: 200%; }
 }
+
+/* Corrige a cor do texto no card destaque */
+.card-opcao.destaque .titulo-opcao {
+  color: #1a1a1a;
+}
+
+.card-opcao.destaque .descricao-opcao {
+  color: #5a5a5a;
+}
+
 
 /* Container da onda */
 .fundo-onda {
