@@ -598,3 +598,12 @@ body {
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
 }
+
+/* Imagem de fundo para todo o site */
+body {
+    background-image: url('img/logofo.png'); /* caminho da sua imagem */
+    background-size: cover;      /* cobre toda a tela */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat;/* não repete */
+    background-attachment: fixed; /* imagem fixa ao rolar a página */
+}
