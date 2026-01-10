@@ -26,10 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // DADOS EM LINHA
     linhaDados.textContent = `${dadosUsuario.idade} Anos | ${dadosUsuario.peso} kg | ${dadosUsuario.altura} cm`;
 
-    // OBJETIVO EM DESTAQUE
-    objetivoDiv.textContent = `Objetivo: ${objetivoUsuario}`;
+    // OBJETIVO EM DESTAQUE (COM CLASSE VISUAL)
+    objetivoDiv.textContent = objetivoUsuario;
+    objetivoDiv.classList.add("objetivo-destaque");
 
-    // ALIMENTOS (TODOS JUNTOS, SEM CAFÉ / ALMOÇO ETC)
+    // ALIMENTOS (TODOS JUNTOS, SEM SUBTÍTULOS)
     let alimentos = [];
 
     Object.values(dietaSelecionada).forEach(lista => {
