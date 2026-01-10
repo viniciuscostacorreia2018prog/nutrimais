@@ -587,17 +587,14 @@ body {
 }
 
 /* Teste de FUndo */
-
 body {
-    background: conic-gradient(from 0deg, #cce8c9, #e6f4e6, #ffffff, #f0fdf0, #dff7df, #cce8c9);
-    background-size: 600% 600%;  /* maior escala = ondulações mais visíveis */
-    animation: conicFlex 40s ease-in-out infinite;  /* movimento mais orgânico */
+    background: linear-gradient(-45deg, #a8d5a2, #cce8c9, #ffffff, #e6f4e6);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
 }
 
-@keyframes conicFlex {
-    0% { background-position: 0% 0%; }
-    25% { background-position: 50% 25%; }   /* ondulação intermediária */
-    50% { background-position: 100% 50%; }  /* ponto máximo da ondulação */
-    75% { background-position: 50% 75%; }   /* ondulação inversa */
-    100% { background-position: 0% 100%; }
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
