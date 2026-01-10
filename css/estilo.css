@@ -571,3 +571,17 @@ body {
   font-size: 14px;
   color: #555;
 }
+
+/* Página 4 - DESTAQUE VISUAL DO OBJETIVO (estilo botão/pill) */
+.objetivo-box {
+  display: inline-block;
+  margin: 14px auto;
+  padding: 10px 22px;
+  background: rgba(29, 185, 84, 0.15); /* verde da logo suave */
+  color: #1db954; /* verde da logo */
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 999px; /* totalmente redondo */
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(29, 185, 84, 0.25);
+}
