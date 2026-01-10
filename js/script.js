@@ -6,7 +6,7 @@ function validarCampos() {
   btn.disabled = !tudoPreenchido;
 }
 
-// escuta mudanças
+// ouvir mudanças
 inputs.forEach(i => {
   i.addEventListener("input", validarCampos);
   i.addEventListener("change", validarCampos);
@@ -34,3 +34,4 @@ btn.addEventListener("click", () => {
 
   window.location.href = "alimentos.html";
 });
+
