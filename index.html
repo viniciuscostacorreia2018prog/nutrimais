@@ -5,8 +5,51 @@
   <title>Nutri+</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/estilo.css">
+  <style>
+    /* Fundo em formato de onda animada */
+    .fundo-onda {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      z-index: -1; /* Para ficar atrás do conteúdo */
+    }
+
+    .fundo-onda svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Ajuste do container para não sobrepor a onda */
+    .container-inicio {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 150px; /* Para aparecer acima da onda */
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Fundo em onda animada -->
+  <div class="fundo-onda">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path id="onda" fill="#3a5a30" d="M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z">
+        <animate 
+          attributeName="d" 
+          dur="10s" 
+          repeatCount="indefinite"
+          values="
+            M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z;
+            M0,120 C480,100 960,200 1440,120 L1440,320 L0,320 Z;
+            M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z
+          " />
+      </path>
+    </svg>
+  </div>
 
   <div class="container-inicio">
 
@@ -14,13 +57,12 @@
     <img src="img/logo.png" alt="Nutri+" class="logo">
 
     <!-- FRASE PRINCIPAL -->
-
     <p class="subtitulo">
       Escolha como deseja continuar
     </p>
 
     <!-- OPÇÃO NOVO -->
-<a href="dados.html" class="card-opcao destaque">
+    <a href="dados.html" class="card-opcao destaque">
       <span class="titulo-opcao">Sou novo na Nutri+</span>
       <span class="descricao-opcao">Personalizar minha dieta agora</span>
     </a>
