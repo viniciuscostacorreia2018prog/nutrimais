@@ -59,19 +59,31 @@
 
   <!-- RESUMO -->
   <div class="resumo hidden" id="resumo">
-    <div class="card-resumo">
+<div class="card-resumo">
 
-      <img src="logo-nutrimais.png" class="logo-resumo" alt="Nutri+">
+  <img src="logo-nutrimais.png" class="logo-resumo" alt="Nutri+">
 
-      <h2>Resumo da sua dieta</h2>
+  <h2>Confirme sua dieta:</h2>
 
-      <p>Olá, <strong><span id="nomeUsuario"></span></strong> 👋</p>
+  <p class="nome-usuario">
+    Olá, <strong><span id="nomeUsuario"></span></strong> 👋
+  </p>
 
-      <h3>Dados:</h3>
-<div id="dadosResumo"></div>
+  <p class="linha-dados" id="linhaDados"></p>
 
-<h3>Alimentos selecionados:</h3>
-<div id="alimentosResumo"></div>
+  <div class="objetivo-box">
+    <span id="objetivoUsuario"></span>
+  </div>
+
+  <h3>Alimentos selecionados:</h3>
+  <div id="alimentosResumo"></div>
+
+  <button class="btn-principal" onclick="irParaPlanos()">
+    Gerar Dieta
+  </button>
+
+</div>
+
 
 </div> <!-- FIM DO CARD DE RESUMO -->
 
