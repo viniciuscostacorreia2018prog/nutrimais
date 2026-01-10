@@ -27,14 +27,6 @@ body {
   margin-bottom: 32px;
 }
 
-/* TÍTULOS */
-.titulo-principal {
-  font-size: 28px;
-  font-weight: 800;
-  color: #111111; /* TEXTO ESCURO */
-  margin-bottom: 12px;
-}
-
 .subtitulo {
   font-size: 16px;
   color: #444444; /* CINZA ESCURO */
@@ -42,23 +34,16 @@ body {
 }
 
 /* CARDS / BOTÕES */
-/* CARDS / BOTÕES */
 .card-opcao {
   width: 100%;
-  background: #1e3a2f; /* verde escuro de fundo */
+  background: #ffffff;
   border-radius: 18px;
   padding: 22px 18px;
   margin-bottom: 18px;
   text-decoration: none;
-  border: 1px solid #3c6e4f; /* verde mais claro para borda */
-  box-shadow: 0 6px 18px rgba(60, 110, 79, 0.3); /* sombra verde suave */
-  color: #e0f7e9; /* texto branco esverdeado */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-opcao:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(60, 110, 79, 0.5); /* sombra maior ao passar o mouse */
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
 }
 
 .card-opcao:hover {
@@ -131,11 +116,28 @@ body {
   --verde-logo: #1db954; /* ajuste aqui se quiser outro tom */
 }
 
-/* CARD DESTAQUE – SOU NOVO NA NUTRI+ */
+/* Página 1 CARD DESTAQUE – SOU NOVO NA NUTRI+ */
 .card-opcao.destaque {
-  background: var(--verde-logo);
+  background: #3a5a30; /* verde-mata */
   border: none;
-  box-shadow: 0 10px 28px rgba(29, 185, 84, 0.35);
+  box-shadow: 0 10px 28px rgba(58, 90, 48, 0.35); /* sombra verde suave */
+  color: #ffffff; /* texto branco para contraste */
+}
+
+/* Container da onda */
+.fundo-onda {
+  position: relative;
+  width: 100%;
+  height: 300px; /* altura da onda */
+  overflow: hidden;
+}
+
+.fundo-onda svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* TEXTOS DO CARD VERDE */
