@@ -9,7 +9,7 @@ const resumo = document.getElementById("resumo");
 const nomeSpan = document.getElementById("nomeUsuario");
 const dadosDiv = document.getElementById("dadosResumo");
 const alimentosDiv = document.getElementById("alimentosResumo");
-const objetivobox = document.getElementById("objetivoResumo");
+const objetivoDIV = document.getElementById("objetivoResumo");
 
 // ===== DADOS =====
 const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
@@ -42,8 +42,8 @@ setTimeout(() => {
 
   // ===== OBJETIVO =====
   /* DESTAQUE VISUAL DO OBJETIVO (estilo botão/pill) */
-if (objetivoBox && objetivo) {
-  objetivoBox.textContent = objetivo;
+if (objetivoDiv && objetivo) {
+  objetivodiv.textContent = objetivo;
 }
 
   // ===== ALIMENTOS (TUDO JUNTO) =====
