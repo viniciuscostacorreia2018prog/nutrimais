@@ -1,23 +1,9 @@
-// Define progresso da página 4 (~90%)
-function definirProgresso(porcentagem) {
-  const barra = document.getElementById("barraProgresso");
-  if (barra) barra.style.width = porcentagem + "%";
-}
-
-// Inicia progresso
-definirProgresso(88);
-
-// Simula carregamento de 10s
-setTimeout(() => {
-  document.getElementById("loading").style.display = "none";
-  document.getElementById("resumo").classList.remove("hidden");
-  carregarResumo();
-}, 10000);
-
-// Dados simulados (depois conecta no localStorage)
+// ===== BARRA DE PROGRESSO =====
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== ELEMENTOS =====
+  const barra = document.getElementById("barraProgresso");
+  if (barra) barra.style.width = "88%";
+
   const loading = document.getElementById("loading");
   const resumo = document.getElementById("resumo");
 
@@ -25,23 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const dadosDiv = document.getElementById("dadosResumo");
   const alimentosDiv = document.getElementById("alimentosResumo");
 
-  // ===== DADOS DO STORAGE =====
+  // ===== DADOS DO LOCALSTORAGE =====
   const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
   const dietaSelecionada = JSON.parse(localStorage.getItem("dietaSelecionada"));
 
   console.log("dadosUsuario:", dadosUsuario);
   console.log("dietaSelecionada:", dietaSelecionada);
 
-  // ===== SEGURANÇA =====
   if (!dadosUsuario || !dietaSelecionada) {
     console.error("Dados não encontrados no localStorage");
     return;
   }
 
-  // ===== SIMULA LOADING =====
+  // ===== SIMULA CARREGAMENTO =====
   setTimeout(() => {
-    loading.style.display = "none";
-    resumo.classList.remove("hidden");
+
+    if (loading) loading.style.display = "none";
+    if (resumo) resumo.classList.remove("hidden");
 
     // ===== NOME =====
     if (nomeSpan) {
@@ -51,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===== DADOS =====
     if (dadosDiv) {
       dadosDiv.innerHTML = `
-        <p><strong>Idade:</strong> ${dadosUsuario.idade} anos</p>
-        <p><strong>Peso:</strong> ${dadosUsuario.peso} kg</p>
-        <p><strong>Altura:</strong> ${dadosUsuario.altura} cm</p>
+        <p><strong>Idade:</strong> ${dadosUsuario.idade || "-"} anos</p>
+        <p><strong>Peso:</strong> ${dadosUsuario.peso || "-"} kg</p>
+        <p><strong>Altura:</strong> ${dadosUsuario.altura || "-"} cm</p>
       `;
     }
 
@@ -62,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let html = "";
 
       Object.keys(dietaSelecionada).forEach(refeicao => {
-        if (dietaSelecionada[refeicao].length > 0) {
+        if (Array.isArray(dietaSelecionada[refeicao]) && dietaSelecionada[refeicao].length > 0) {
           html += `<p><strong>${refeicao}:</strong></p><ul>`;
           dietaSelecionada[refeicao].forEach(item => {
             html += `<li>${item}</li>`;
@@ -74,12 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
       alimentosDiv.innerHTML = html || "<p>Nenhum alimento selecionado.</p>";
     }
 
-  }, 1800); // tempo do loading
-
+  }, 1800);
 });
 
-});
-// Redireciona para planos
+// ===== BOTÃO FINAL =====
 function irParaPlanos() {
   window.location.href = "planos.html";
 }
+
