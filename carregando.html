@@ -12,7 +12,7 @@
   <div class="barra-container">
     <div class="barra-progresso" id="barraProgresso"></div>
   </div>
-  <script>
+ <script>
   // ====== COLETA DE DADOS ======
   const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario")) || {};
   const objetivoUsuario = localStorage.getItem("objetivoSelecionado") || "";
@@ -34,7 +34,7 @@
     `;
   }
 
-  // ====== ALIMENTOS SELECIONADOS ======
+    // ====== ALIMENTOS SELECIONADOS ======
   const alimentosDiv = document.getElementById("alimentosResumo");
   if (alimentosDiv) {
     let html = "";
@@ -43,7 +43,7 @@
       if (dietaSelecionada[refeicao].length > 0) {
         html += `<p><strong>${refeicao}:</strong></p><ul>`;
         dietaSelecionada[refeicao].forEach(item => {
-          html += `<li>${item.nome}</li>`;
+          html += `<li>${item}</li>`;
         });
         html += `</ul>`;
       }
