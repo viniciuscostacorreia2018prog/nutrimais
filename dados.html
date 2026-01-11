@@ -38,12 +38,13 @@
       <option>Saúde e Bem-estar</option>
     </select>
 
-    <!-- CALORIAS -->
-    <div class="opcao-expandivel">
-  <button type="button" class="opcao-botao"> Calorias</button>
+<!-- CALORIAS -->
+<div class="campo-expansivel">
+  <div class="campo-trigger">Calorias</div>
 
-  <div class="opcao-conteudo">
+  <div class="campo-conteudo">
     <select>
+      <option value="">Selecione</option>
       <option>1600 kcal</option>
       <option>1800 kcal</option>
       <option>2000 kcal</option>
@@ -53,34 +54,43 @@
   </div>
 </div>
 
-    <!-- ALERGIA -->
-    <div class="opcao-expandivel">
-      <button type="button" class="opcao-botao">Alergia</button>
-      <div class="opcao-Conteudo">
-        <select class="input-clean">
-          <option>Não possuo</option>
-          <option>Sim, possuo</option>
-        </select>
-        <input class="input-clean" type="text" placeholder="Qual alergia? (se houver)">
-      </div>
-    </div>
+<!-- ALERGIA -->
+<div class="campo-expansivel">
+  <div class="campo-trigger">Alergia</div>
 
-    <!-- HISTÓRICO -->
-    <div class="opcao-expandivel">
-      <button type="button" class="opcao-botao">Histórico de Doença</button>
-      <div class="opcao-Conteudo">
-        <select class="input-clean">
-          <option>Não possuo</option>
-          <option>Pessoal</option>
-          <option>Familiar</option>
-        </select>
-        <input class="input-clean" type="text" placeholder="Descreva (opcional)">
-      </div>
-    </div>
+  <div class="campo-conteudo">
+    <select class="select-alergia">
+      <option value="">Selecione</option>
+      <option value="nao">Não possuo</option>
+      <option value="sim">Sim, possuo</option>
+    </select>
 
-    <button class="botao-principal">Continuar</button>
-
+    <input
+      type="text"
+      class="input-extra"
+      placeholder="Descreva a alergia"
+    >
   </div>
+</div>
+
+<!-- HISTÓRICO DE DOENÇA -->
+<div class="campo-expansivel">
+  <div class="campo-trigger">Histórico de Doença</div>
+
+  <div class="campo-conteudo">
+    <select class="select-historico">
+      <option value="">Selecione</option>
+      <option value="nao">Não possuo</option>
+      <option value="sim">Sim, possuo</option>
+    </select>
+
+    <input
+      type="text"
+      class="input-extra"
+      placeholder="Descreva o histórico"
+    >
+  </div>
+</div>
 
   <script src="js/dados.js"></script>
 </body>
