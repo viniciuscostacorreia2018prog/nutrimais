@@ -249,11 +249,13 @@
   margin-top: 36px;
   text-align: center;
 }
+
 .form-wrapper {
   max-width: 420px;
   margin: 0 auto;
   padding: 0 16px;
 }
+
 /* CENTRALIZAR APENAS TEXTO DOS CAMPOS */
 .campo {
   text-align: center;
@@ -267,6 +269,7 @@
 .campo select {
   text-align: center;
 }
+
 /* ===== CAMPOS MODELO WHATSAPP ===== */
 .campo-whatsapp {
   background: transparent;
@@ -299,6 +302,7 @@
 .campo-whatsapp select:focus {
   border-bottom: 2px solid var(--verde-logo);
 }
+
 /* GRID DE CARDS DE ALIMENTOS */
 .grid {
   display: grid;
@@ -342,6 +346,7 @@
   font-size: 18px;
   font-weight: 600;
 }
+
 /* CENTRALIZAR TÍTULO E SUBTÍTULO DA PÁGINA DE ALIMENTOS */
 .titulo-central, .subtitulo-central {
   text-align: center;
@@ -427,6 +432,7 @@
   border-radius: 6px;
   transition: width 0.4s ease;
 }
+
 /* CARD GRANDE DA REFEIÇÃO */
 .bloco-refeicao {
   background: #ffffff;
@@ -691,26 +697,3 @@ body::after {
     0 0 14px rgba(120, 220, 170, 0.25),
     0 10px 26px rgba(0,0,0,0.07);
 }
-
-/* FUNDO ANIMADO ESTILO APPLE – SOMENTE HOME */
-.apple-gradient-bg {
-  position: fixed;
-  inset: -50%;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 20% 30%, #c8f7d4, transparent 40%),
-    radial-gradient(circle at 80% 20%, #d6e9ff, transparent 45%),
-    radial-gradient(circle at 60% 80%, #e9ddff, transparent 40%),
-    radial-gradient(circle at 30% 70%, #b8f0d0, transparent 45%);
-  filter: blur(60px);
-  animation: appleFlow 25s ease-in-out infinite alternate;
-}
-
-/* ANIMAÇÃO REAL */
-@keyframes appleFlow {
-  0% {
-    transform: translate(-10%, -10%) scale(1);
-  }
-  100% {
-    transform: translate(10%, 10%) scale(1.15);
-  }
