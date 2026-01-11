@@ -23,7 +23,7 @@
 }
 
 .subtitulo {
-  font-size: 20px;
+  font-size: 18px;
   color: #444444; /* CINZA ESCURO - Escolha como Deseja continuar */
   margin-bottom: 36px;
 }
@@ -205,26 +205,6 @@
   opacity: 1;
 }
 
-/* BARRA DE PROGRESSO */
-.progresso {
-  width: 100%;
-  height: 6px;
-  background: #eaeaea;
-  border-radius: 6px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 20;
-}
-
-.progresso-barra {
-  height: 100%;
-  width: 33%; /* ex: 33% se for a 1ª etapa, ajustar dinamicamente no JS */
-  background: var(--verde-logo);
-  border-radius: 6px;
-  transition: width 0.4s ease;
-}
-
 /* BOTÃO FINAL ESTILO HOME */
 .botao-final {
   margin-top: 36px;
@@ -284,7 +264,7 @@
   border-bottom: 2px solid var(--verde-logo);
 }
 
-/* GRID DE CARDS DE ALIMENTOS */
+/* Página 3 - GRID DE CARDS DE ALIMENTOS */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
@@ -292,7 +272,7 @@
   margin-bottom: 20px;
 }
 
-/* CARD INDIVIDUAL */
+/* Página 3 - CARD INDIVIDUAL */
 .card {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -306,7 +286,7 @@
   transition: all 0.2s ease;
 }
 
-/* HOVER */
+/* Página 3 - Cor quando seleciona os Alimentos */
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
