@@ -5,11 +5,6 @@
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-body {
-  background: #ffffff; /* FUNDO BRANCO */
-  min-height: 100vh;
-}
-
 /* CONTAINER CENTRAL */
 .container-inicio {
   max-width: 420px;
