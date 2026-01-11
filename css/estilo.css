@@ -57,13 +57,13 @@
 
 /* Página 1 Texto tamanho Desktop */
 .card-opcao.destaque .descricao-opcao {
-  font-size: 1.3rem; /* ajuste fino aqui */
+  font-size: 1.1rem; /* ajuste fino aqui */
 }
 
 /* Página 1 Texto tamanho - MOBILE */
 @media (max-width: 480px) {
   .card-opcao.destaque .descricao-opcao {
-    font-size: 1.18rem;
+    font-size: 1.14rem;
   }
 }
 
