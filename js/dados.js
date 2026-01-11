@@ -1,35 +1,86 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll("input, select");
-  const btn = document.getElementById("btnContinuar");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dados Básicos - Nutri+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
 
-  function validarCampos() {
-    const tudoPreenchido = [...inputs].every(i => i.value.trim() !== "");
-    btn.disabled = !tudoPreenchido;
-  }
+  <div class="bloco-intro">
+    <div class="icone-medidas">📏</div>
+    <h1 class="titulo-principal">Medidas Corporais</h1>
+    <p class="subtitulo">
+      Informe seus dados para personalizarmos sua dieta
+    </p>
+  </div>
 
-  inputs.forEach(i => {
-    i.addEventListener("input", validarCampos);
-    i.addEventListener("change", validarCampos);
-  });
+  <div class="card-formulario">
 
-  validarCampos();
+    <input class="input-clean" type="text" placeholder="Seu nome">
+    <input class="input-clean" type="number" placeholder="Sua idade">
+    <input class="input-clean" type="number" placeholder="Peso (kg)">
+    <input class="input-clean" type="number" placeholder="Altura (cm)">
 
-  btn.addEventListener("click", () => {
-    if (btn.disabled) return;
+    <select class="input-clean">
+      <option value="">Sexo</option>
+      <option>Masculino</option>
+      <option>Feminino</option>
+    </select>
 
-    const dadosUsuario = {
-      nome: document.querySelector('input[placeholder="Digite seu nome"]').value,
-      idade: document.querySelector('input[placeholder="Ex: 25"]').value,
-      peso: document.querySelector('input[placeholder="Ex: 70"]').value,
-      altura: document.querySelector('input[placeholder="Ex: 175"]').value,
-      sexo: document.querySelectorAll("select")[0].value
-    };
+    <select class="input-clean">
+      <option value="">Objetivo</option>
+      <option>Emagrecimento</option>
+      <option>Hipertrofia</option>
+      <option>Recomposição Corporal</option>
+      <option>Manutenção</option>
+      <option>Saúde e Bem-estar</option>
+    </select>
 
-    const objetivoSelecionado = document.querySelectorAll("select")[1].value;
+    <!-- CALORIAS -->
+    <div class="opcao">
+      <button type="button" class="opcao-toggle">Calorias</button>
+      <div class="opcao-body">
+        <select class="input-clean">
+          <option>1600 kcal</option>
+          <option>1800 kcal</option>
+          <option>2000 kcal</option>
+          <option>2200 kcal</option>
+          <option>Não sei informar</option>
+        </select>
+      </div>
+    </div>
 
-    localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
-    localStorage.setItem("objetivoSelecionado", objetivoSelecionado);
+    <!-- ALERGIA -->
+    <div class="opcao">
+      <button type="button" class="opcao-toggle">Alergia</button>
+      <div class="opcao-body">
+        <select class="input-clean">
+          <option>Não possuo</option>
+          <option>Sim, possuo</option>
+        </select>
+        <input class="input-clean" type="text" placeholder="Qual alergia? (se houver)">
+      </div>
+    </div>
 
-    window.location.href = "alimentos.html";
-  });
-});
+    <!-- HISTÓRICO -->
+    <div class="opcao">
+      <button type="button" class="opcao-toggle">Histórico de Doença</button>
+      <div class="opcao-body">
+        <select class="input-clean">
+          <option>Não possuo</option>
+          <option>Pessoal</option>
+          <option>Familiar</option>
+        </select>
+        <input class="input-clean" type="text" placeholder="Descreva (opcional)">
+      </div>
+    </div>
+
+    <button class="botao-principal">Continuar</button>
+
+  </div>
+
+  <script src="js/dados.js"></script>
+</body>
+</html>
