@@ -55,6 +55,11 @@
   100% { background-position: 200%; }
 }
 
+/* Página 1 Texto tamanho */
+.card-opcao.destaque .descricao-opcao {
+  font-size: 1.3rem; /* ajuste fino aqui */
+}
+
 /* Página 2 BOTÃO GRANDE CONTINUAR – DESTAQUE */
 .botao-principal {
   width: 100%;
