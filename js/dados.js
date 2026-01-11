@@ -82,5 +82,14 @@
   </div>
 
   <script src="js/dados.js"></script>
+
+  // Abrir / fechar opções (Calorias, Alergia, Histórico)
+document.querySelectorAll(".opcao-botao").forEach(botao => {
+  botao.addEventListener("click", () => {
+    const bloco = botao.closest(".opcao-expandivel");
+    bloco.classList.toggle("ativa");
+  });
+});
+
 </body>
 </html>
