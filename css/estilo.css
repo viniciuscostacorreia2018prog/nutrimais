@@ -634,17 +634,17 @@ body::after {
 /* Camada principal */
 body::before {
   background:
-    radial-gradient(50% 70% at 20% 25%, #e7f6ec 0%, transparent 65%),
-    radial-gradient(60% 80% at 85% 20%, #eef2ff 0%, transparent 80%),
-    radial-gradient(70% 90% at 50% 85%, #f4f0ff 0%, transparent 80%);
-  animation: fundoIA1 30s infinite;
+    radial-gradient(50% 70% at 30% 25%, #e7f6ec 0%, transparent 65%),
+    radial-gradient(60% 80% at 85% 20%, #eef2ff 0%, transparent 90%),
+    radial-gradient(70% 90% at 50% 85%, #f4f0ff 0%, transparent 100%);
+  animation: fundoIA1 15s infinite;
 }
 
 /* Camada secundária */
 body::after {
   background:
-    radial-gradient(100% 100% at 70% 65%, #def5e6 0%, transparent 70%),
-    radial-gradient(110% 120% at 30% 80%, #f2efff 0%, transparent 80%);
+    radial-gradient(100% 100% at 70% 65%, #def5e6 0%, transparent 90%),
+    radial-gradient(110% 120% at 30% 80%, #f2efff 0%, transparent 100%);
   animation: fundoIA2 15s infinite;
 }
 
