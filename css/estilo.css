@@ -150,22 +150,6 @@ body {
   color: #5a5a5a;
 }
 
-/* Container da onda */
-.fundo-onda {
-  position: relative;
-  width: 100%;
-  height: 300px; /* altura da onda */
-  overflow: hidden;
-}
-
-.fundo-onda svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 /* TEXTOS DO CARD DESTAQUE (corrigido para fundo branco) */
 .card-opcao.destaque .titulo-opcao {
   color: #1a1a1a;
@@ -625,61 +609,91 @@ body {
   box-shadow: 0 8px 20px rgba(29, 185, 84, 0.45) !important;
 }
 
-/* FUNDO ORGÂNICO ANIMADO – ESTILO IA */
+/* RESET */
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
   background: #f6f8f5;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Camada 1 */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -20%;
-  background:
-    radial-gradient(circle at 30% 30%, #dff3e3 0%, transparent 55%),
-    radial-gradient(circle at 70% 40%, #e8f1ff 0%, transparent 60%),
-    radial-gradient(circle at 50% 80%, #f1eaff 0%, transparent 55%);
-  animation: movimentoFundo 28s ease-in-out infinite alternate;
-  z-index: -2;
-}
-
-/* Camada 2 (mais suave, mais lenta) */
+/* FUNDO IA – GRADIENTES ORGÂNICOS */
+body::before,
 body::after {
   content: "";
   position: fixed;
-  inset: -20%;
+  inset: -30%;
+  z-index: -1;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Camada principal */
+body::before {
   background:
-    radial-gradient(circle at 20% 70%, #e6f4e6 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, #f5f0ff 0%, transparent 55%);
-  animation: movimentoFundo2 40s ease-in-out infinite alternate;
-  z-index: -3;
+    radial-gradient(40% 60% at 20% 30%, #e7f6ec 0%, transparent 60%),
+    radial-gradient(45% 65% at 80% 20%, #eef2ff 0%, transparent 65%),
+    radial-gradient(50% 70% at 50% 80%, #f4f0ff 0%, transparent 60%);
+  animation: fundoIA1 30s infinite;
 }
 
-/* Animações */
-@keyframes movimentoFundo {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-4%, -3%) scale(1.05);
-  }
-  100% {
-    transform: translate(4%, 3%) scale(1);
-  }
+/* Camada secundária */
+body::after {
+  background:
+    radial-gradient(50% 70% at 70% 60%, #dff3e3 0%, transparent 65%),
+    radial-gradient(40% 60% at 30% 70%, #f7f3ff 0%, transparent 60%);
+  animation: fundoIA2 45s infinite;
 }
 
-@keyframes movimentoFundo2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(3%, -2%) scale(1.08);
-  }
-  100% {
-    transform: translate(-3%, 2%) scale(1);
-  }
+/* Animações orgânicas */
+@keyframes fundoIA1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-4%, -3%) scale(1.06); }
+  100% { transform: translate(4%, 3%) scale(1); }
+}
+
+@keyframes fundoIA2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -2%) scale(1.08); }
+  100% { transform: translate(-3%, 2%) scale(1); }
+}
+
+/* CONTEÚDO */
+.container-inicio {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 150px;
+}
+
+/* CARDS */
+.card-opcao {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 18px;
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: #1a1a1a;
+  display: block;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card-opcao:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* CARD DESTAQUE – IA SUTIL */
+.card-opcao.destaque {
+  border: 1.5px solid rgba(120, 220, 170, 0.6);
+  box-shadow:
+    0 0 14px rgba(120, 220, 170, 0.25),
+    0 10px 26px rgba(0,0,0,0.07);
 }
