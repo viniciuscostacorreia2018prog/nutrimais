@@ -8,10 +8,6 @@
 </head>
 <body>
 
-  <div class="progresso">
-  <div class="progresso-barra" style="width: 30%;"></div>
-</div>
-
     <div class="bloco-intro">
   <div class="icone-medidas">📏</div>
   <h1 class="titulo-principal">Medidas Corporais</h1>
@@ -20,9 +16,7 @@
   </p>
 </div>
  
-<div class="card-dados">
- 
-<div class="form-wrapper">
+<div class="card-formulario">
  
   <div class="campo-whatsapp">
     <label>Nome</label>
@@ -44,6 +38,41 @@
     <input type="number" placeholder="Ex: 175">
   </div>
 
+ <div class="campo">
+  <label>Calorias</label>
+
+  <div class="grupo-opcoes">
+    <button type="button">1600 kcal</button>
+    <button type="button">1800 kcal</button>
+    <button type="button">2000 kcal</button>
+    <button type="button">2200 kcal</button>
+    <button type="button">Não sei dizer</button>
+  </div>
+</div>
+
+ <div class="campo">
+  <label>Alergia</label>
+
+  <div class="grupo-opcoes">
+    <button type="button">Não possuo</button>
+    <button type="button">Sim, possuo</button>
+  </div>
+
+  <input type="text" placeholder="Descreva a alergia (se houver)">
+</div>
+
+ <div class="campo">
+  <label>Histórico de Doença</label>
+
+  <div class="grupo-opcoes">
+    <button type="button">Não possuo</button>
+    <button type="button">Pessoal</button>
+    <button type="button">Familiar</button>
+  </div>
+
+  <input type="text" placeholder="Descreva (se aplicável)">
+</div>
+
   <div class="campo-whatsapp">
     <label>Sexo</label>
     <select>
@@ -57,21 +86,19 @@
       <label>Objetivo</label>
       <select>
         <option value="">Selecione</option>
-        <option>Emagrecimento</option>
-        <option>Hipertrofia</option>
-        <option>Ganhar massa</option>
-        <option>Emagrecimento + Hipertofria</option>
-        <option>Ganhar massa + Hipertrofia</option>
-        <option>Qualidade de Vida</option>
-        <option>Saúde</option>
+        <option>Emagrecimento (Perda de Gordura Corporal)</option>
+        <option>Ganhar Massa Muscular (Hipertrofia)</option>
+        <option>Ganhar Massa Seca + Hipertrofia</option>
+        <option>Ganhar Massa Seca + Emagrecimento (Recomposição Corporal)</option>
+        <option>Manutenção (Apenas manter o Peso)</option>
+        <option>Melhora da Performance</option>
+        <option>Saúde e Bem-Estar Geral</option>
       </select>
     </div>
-
+ 
+  <button id="btnContinuar" class="botao-principal" disabled> Continuar
+       </button>
   </div>
-
-  <button id="btnContinuar" class="botao-principal" disabled>
-  Continuar
-</button>
 
 <script src="js/dados.js"></script>
 </body>
