@@ -11,41 +11,26 @@
   <div class="bloco-intro">
     <div class="icone-medidas">📏</div>
     <h1 class="titulo-principal">Medidas Corporais</h1>
-    <p class="subtitulo">
-      Informe suas medidas corretamente para iniciarmos
-    </p>
+    <p class="subtitulo">Informe suas medidas corretamente</p>
   </div>
 
   <div class="card-formulario">
 
-    <div class="campo-expansivel ativo">
-  <div class="campo-trigger" data-default="Nome">Nome</div>
-  <div class="campo-conteudo">
-    <input type="text" id="nome" placeholder="Digite seu nome">
-  </div>
-</div>
+    <div class="campo-whatsapp">
+      <input type="text" id="nome" placeholder="Nome">
+    </div>
 
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Idade">Idade</div>
-  <div class="campo-conteudo">
-    <input type="number" id="idade" placeholder="Ex: 25">
-  </div>
-</div>
+    <div class="campo-whatsapp">
+      <input type="number" id="idade" placeholder="Idade">
+    </div>
 
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Peso">Peso</div>
-  <div class="campo-conteudo">
-    <input type="number" id="peso" placeholder="kg">
-  </div>
-</div>
+    <div class="campo-whatsapp">
+      <input type="number" id="peso" placeholder="Peso (kg)">
+    </div>
 
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Altura">Altura</div>
-  <div class="campo-conteudo">
-    <input type="number" id="altura" placeholder="cm">
-  </div>
-</div>
-
+    <div class="campo-whatsapp">
+      <input type="number" id="altura" placeholder="Altura (cm)">
+    </div>
 
     <div class="campo-whatsapp">
       <select id="sexo">
@@ -62,65 +47,44 @@
         <option>Hipertrofia</option>
         <option>Recomposição Corporal</option>
         <option>Manutenção</option>
-        <option>Saúde e Bem-estar</option>
       </select>
     </div>
 
-   <!-- CALORIAS -->
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Calorias">Calorias</div>
-  <div class="campo-conteudo">
-    <select id="calorias">
-      <option value="">Selecione</option>
-      <option value="1600">1600 kcal</option>
-      <option value="1800">1800 kcal</option>
-      <option value="2000">2000 kcal</option>
-      <option value="2200">2200 kcal</option>
-      <option value="nao-sei">Não sei dizer</option>
-    </select>
-  </div>
-</div>
+    <div class="campo-whatsapp">
+      <select id="calorias">
+        <option value="">Calorias</option>
+        <option>1600 kcal</option>
+        <option>1800 kcal</option>
+        <option>2000 kcal</option>
+        <option>2200 kcal</option>
+        <option>Não sei dizer</option>
+      </select>
+    </div>
 
-<!-- ALERGIA -->
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Alergia">Alergia</div>
-  <div class="campo-conteudo">
-    <select id="alergia">
-      <option value="">Selecione</option>
-      <option value="nao">Não possuo</option>
-      <option value="sim">Sim, possuo</option>
-    </select>
+    <div class="campo-whatsapp">
+      <select id="alergia">
+        <option value="">Alergia</option>
+        <option>Não possuo</option>
+        <option>Sim, possuo</option>
+      </select>
+    </div>
 
-    <input
-      type="text"
-      id="alergiaDescricao"
-      class="input-extra"
-      placeholder="Descreva a alergia"
-    >
-  </div>
-</div>
+    <div class="campo-whatsapp" id="alergiaBox" style="display:none;">
+      <input type="text" id="alergiaDescricao" placeholder="Descreva a alergia">
+    </div>
 
-<!-- HISTÓRICO -->
-<div class="campo-expansivel">
-  <div class="campo-trigger" data-default="Histórico de Doença">
-    Histórico de Doença
-  </div>
-  <div class="campo-conteudo">
-    <select id="historico">
-      <option value="">Selecione</option>
-      <option value="nao">Não possuo</option>
-      <option value="pessoal">Sim, pessoal</option>
-      <option value="familiar">Sim, familiar</option>
-    </select>
+    <div class="campo-whatsapp">
+      <select id="historico">
+        <option value="">Histórico de Doença</option>
+        <option>Não possuo</option>
+        <option>Sim, pessoal</option>
+        <option>Sim, familiar</option>
+      </select>
+    </div>
 
-    <input
-      type="text"
-      id="historicoDescricao"
-      class="input-extra"
-      placeholder="Descreva (se necessário)"
-    >
-  </div>
-</div>
+    <div class="campo-whatsapp" id="historicoBox" style="display:none;">
+      <input type="text" id="historicoDescricao" placeholder="Descreva (se necessário)">
+    </div>
 
     <button id="btnContinuar" class="botao-principal" disabled>
       Continuar
