@@ -847,39 +847,42 @@ body::after {
   text-align: center;
 }
 
-/* ===== AJUSTE VISUAL MOBILE – ANAMNESE ===== */
-
+/* ===== CORREÇÃO DEFINITIVA – TEXTO FORA DA CAIXA (MOBILE) ===== */
 @media (max-width: 480px) {
 
-  /* Texto centralizado (sensação correta) */
-  .campo-whatsapp input,
-  .campo-whatsapp select,
-  .campo-expansivel .campo-trigger,
-  .campo-expansivel select {
-    text-align: center;
+  /* Remove qualquer flex interno que esteja quebrando */
+  .campo-expansivel,
+  .campo-whatsapp {
+    display: block !important;
   }
 
-}
-/* ===== CENTRALIZA TEXTO DOS BOTÕES NO MOBILE ===== */
-@media (max-width: 480px) {
-
-  /* Texto dos campos tipo botão */
-  .campo-expansivel .campo-trigger {
+  /* O "botão" visual (texto clicável) */
+  .campo-trigger {
+    width: 100%;
+    display: block !important;
     text-align: center !important;
-    justify-content: center !important;
+    padding: 14px 12px;
+    box-sizing: border-box;
   }
 
-  /* Selects */
+  /* Select */
   .campo-whatsapp select,
   .campo-expansivel select {
+    width: 100%;
+    display: block;
     text-align: center !important;
     text-align-last: center !important;
+    padding: 14px 12px;
+    box-sizing: border-box;
   }
 
-  /* Inputs */
+  /* Input */
   .campo-whatsapp input,
   .campo-expansivel input {
+    width: 100%;
+    display: block;
     text-align: center !important;
+    padding: 14px 12px;
+    box-sizing: border-box;
   }
 }
-
