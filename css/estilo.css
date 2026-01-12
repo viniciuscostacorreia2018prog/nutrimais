@@ -500,7 +500,7 @@ body::before {
     radial-gradient(55% 70% at 25% 30%, rgba(180, 245, 210, 1) 0%, transparent 45%),
     radial-gradient(55% 70% at 80% 25%, rgba(214, 233, 255, 0.7) 0%, transparent 55%),
     radial-gradient(65% 80% at 55% 80%, rgba(233, 221, 255, 0.95) 0%, transparent 60%);
-  animation: fundoIA1 12s infinite;
+  animation: fundoIA1 9s infinite;
 }
 
 /* Camada secundária */
@@ -508,7 +508,7 @@ body::after {
   background:
     radial-gradient(85% 95% at 70% 65%, rgba(170, 240, 205, 1) 0%, transparent 50%),
     radial-gradient(80% 95% at 30% 75%, rgba(220, 215, 255, 0.85) 0%, transparent 60%);
-  animation: fundoIA2 14s infinite;
+  animation: fundoIA2 10s infinite;
 }
 
 /* Animações orgânicas MAIS perceptíveis */
@@ -651,3 +651,8 @@ body::after {
   border-bottom: none;
 }
 
+/* Remove linha duplicada dentro dos expansíveis */
+.campo-conteudo select,
+.campo-conteudo input {
+  border-bottom: none;
+}
