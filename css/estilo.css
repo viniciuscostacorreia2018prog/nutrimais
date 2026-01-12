@@ -806,8 +806,8 @@ body::after {
 
 @media (max-width: 480px) {
   .card-formulario {
-    max-width: 330px;
-    padding: 18px 14px;
+    max-width: 300px;
+    padding: 16px 12px;
   }
 
   .campo-whatsapp {
@@ -821,6 +821,7 @@ body::after {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 /* Inputs e selects centralizados */
