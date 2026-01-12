@@ -54,12 +54,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("change", validarCampos);
 
   validarCampos();
-
-  // <<< CORREÇÃO AQUI: Listener de clique do botão
-btnContinuar.addEventListener("click", () => {
-    window.location.href = "alimentos.html";
-});
-
-  });
-
 });
