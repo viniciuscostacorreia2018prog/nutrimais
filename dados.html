@@ -16,31 +16,32 @@
 
 <div class="card-formulario">
 
-  <input class="input-clean" type="text" placeholder="Seu nome">
-  <input class="input-clean" type="number" placeholder="Sua idade">
-  <input class="input-clean" type="number" placeholder="Peso (kg)">
-  <input class="input-clean" type="number" placeholder="Altura (cm)">
+  <input class="campo-whatsapp" type="text" placeholder="Seu nome">
+  <input class="campo-whatsapp" type="number" placeholder="Sua idade">
+  <input class="campo-whatsapp" type="number" placeholder="Peso (kg)">
+  <input class="campo-whatsapp" type="number" placeholder="Altura (cm)">
 
-  <select class="input-clean">
-    <option value="" disabled selected hidden>Sexo</option>
+  <select class="campo-whatsapp">
+    <option value="">Sexo</option>
     <option>Masculino</option>
     <option>Feminino</option>
   </select>
 
-  <select class="input-clean">
-    <option value="" disabled selected hidden>Objetivo</option>
+  <select class="campo-whatsapp">
+    <option value="">Objetivo</option>
     <option>Emagrecimento</option>
     <option>Hipertrofia</option>
     <option>Recomposição Corporal</option>
     <option>Manutenção</option>
+    <option>Saúde</option>
   </select>
 
   <!-- CALORIAS -->
-  <div class="opcao" data-tipo="calorias">
-    <button class="opcao-toggle">Calorias</button>
-    <div class="opcao-body">
-      <select class="input-clean opcao-select">
-        <option value="" disabled selected hidden>Selecione</option>
+  <div class="campo-expansivel">
+    <div class="campo-trigger">Calorias</div>
+    <div class="campo-conteudo">
+      <select>
+        <option value="">Escolha</option>
         <option>1600 kcal</option>
         <option>1800 kcal</option>
         <option>2000 kcal</option>
@@ -51,35 +52,34 @@
   </div>
 
   <!-- ALERGIA -->
-  <div class="opcao" data-tipo="alergia">
-    <button class="opcao-toggle">Alergia</button>
-    <div class="opcao-body">
-      <select class="input-clean opcao-select">
-        <option value="" disabled selected hidden>Selecione</option>
+  <div class="campo-expansivel">
+    <div class="campo-trigger">Alergia</div>
+    <div class="campo-conteudo">
+      <select>
+        <option value="">Possui alergia?</option>
         <option>Não possuo</option>
         <option>Sim, possuo</option>
       </select>
-      <input class="input-clean opcao-extra" type="text" placeholder="Descreva a alergia" style="display:none">
+      <input class="input-extra" type="text" placeholder="Descreva a alergia">
     </div>
   </div>
 
   <!-- HISTÓRICO -->
-  <div class="opcao" data-tipo="historico">
-    <button class="opcao-toggle">Histórico de Doença</button>
-    <div class="opcao-body">
-      <select class="input-clean opcao-select">
-        <option value="" disabled selected hidden>Selecione</option>
+  <div class="campo-expansivel">
+    <div class="campo-trigger">Histórico de Doença</div>
+    <div class="campo-conteudo">
+      <select>
+        <option value="">Possui histórico?</option>
         <option>Não possuo</option>
         <option>Sim, pessoal</option>
         <option>Sim, familiar</option>
       </select>
-      <input class="input-clean opcao-extra" type="text" placeholder="Descreva" style="display:none">
+      <input class="input-extra" type="text" placeholder="Descreva o histórico">
     </div>
   </div>
 
-  <button id="btnContinuar" class="botao-principal" disabled>Continuar</button>
-</div>
+  <button id="btnContinuar" class="botao-principal" disabled>
+    Continuar
+  </button>
 
-<script src="js/dados.js"></script>
-</body>
-</html>
+</div>
