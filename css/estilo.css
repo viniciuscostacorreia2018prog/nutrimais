@@ -801,7 +801,7 @@ body::after {
 
 /* ESPAÇAMENTO ENTRE CAMPOS */
 .campo-whatsapp + .campo-whatsapp {
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 @media (max-width: 480px) {
@@ -813,4 +813,21 @@ body::after {
   .campo-whatsapp {
     padding: 10px 10px;
   }
+}
+
+/* CENTRALIZAÇÃO GERAL DOS CAMPOS */
+.campo-whatsapp,
+.campo-expansivel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Inputs e selects centralizados */
+.campo-whatsapp input,
+.campo-whatsapp select,
+.campo-expansivel select,
+.campo-expansivel .campo-trigger {
+  width: 100%;
+  text-align: center;
 }
