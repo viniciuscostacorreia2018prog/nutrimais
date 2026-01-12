@@ -43,4 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("change", validarCampos);
 
   validarCampos();
+
+  document.querySelectorAll(".sexo").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".sexo").forEach(b => b.classList.remove("ativo"));
+    btn.classList.add("ativo");
+    document.getElementById("sexo").value = btn.dataset.value;
+    validarCampos();
+  });
 });
+
