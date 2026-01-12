@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("change", validarCampos);
 
   validarCampos();
+  
+document.querySelectorAll(".campo-conteudo input").forEach(input => {
+  input.addEventListener("blur", () => {
+    const bloco = input.closest(".campo-expansivel");
+    if (input.value.trim() !== "") {
+      bloco.classList.remove("ativo");
+    }
+  });
+});
+
 });
 
 btn.addEventListener("click", () => {
