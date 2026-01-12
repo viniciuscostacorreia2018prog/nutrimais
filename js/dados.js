@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function validarCampos() {
     const camposPrincipais = document.querySelectorAll(
-      '.campo-clinico input:not(.input-extra), .campo-clinico select'
-    );
+  '.campo input:not(.input-extra), .campo select'
+);
 
     const extrasAtivos = document.querySelectorAll(".input-extra.ativo");
 
