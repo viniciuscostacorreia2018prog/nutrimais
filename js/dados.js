@@ -54,4 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("change", validarCampos);
 
   validarCampos();
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const botao = document.getElementById("btnContinuar");
+
+    botao.addEventListener("click", () => {
+        // Redireciona para a página de alimentos
+        window.location.href = "alimentos.html";
+    });
+});
+
 });
