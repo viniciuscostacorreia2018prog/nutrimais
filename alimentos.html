@@ -4,140 +4,79 @@
 <meta charset="UTF-8">
 <title>Escolha seus alimentos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/estilo.css">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
-  body { background:#fff; min-height:100vh; position:relative; overflow-x:hidden; }
+  body { background:#fff; min-height:100vh; }
 
   :root { --verde-logo: #1db954; }
 
   .container { max-width:420px; margin:0 auto; padding:60px 20px 120px; text-align:center; position:relative; }
 
-  /* ===== NOVO ÍCONE DE DIETA ===== */
-  .icone-dieta-topo {
-    width: 100px;
-    height: 100px;
-    margin:0 auto 20px;
-    position: relative;
-    z-index:0;
-  }
-  .prato { 
-    width:100px; height:50px; border-radius:50%; 
-    background: linear-gradient(120deg,#1db954,#38ef7d,#1db954);
-    background-size:200% 200%;
-    animation: gradienteIA 4s ease infinite;
-    margin:0 auto;
-    position: relative;
-  }
-  .folha { 
-    position:absolute; top:-10px; left:30%; width:20px; height:35px; 
-    background: linear-gradient(135deg,#76d37f,#1db954); border-radius:50%;
-    animation: folhinha 3s ease-in-out infinite alternate;
-  }
-  .garfo {
-    position:absolute; top:0; right:-15px; width:5px; height:50%;
-    background:#888; border-radius:2px;
-  }
-  .garfo::before, .garfo::after {
-    content:'';
-    position:absolute;
-    width:100%; height:6px;
-    background:#888;
-    top:0; left:-4px; border-radius:2px;
-  }
-  .garfo::after { top:10px; }
-  @keyframes folhinha {
-    0% { transform: rotate(-20deg) translateY(0px); }
-    50% { transform: rotate(-25deg) translateY(-4px); }
-    100% { transform: rotate(-20deg) translateY(0px); }
-  }
-  @keyframes gradienteIA {
-    0% { background-position:0% 50%; }
-    50% { background-position:100% 50%; }
-    100% { background-position:0% 50%; }
-  }
-
-  /* TÍTULO E SUBTÍTULO */
-  .titulo-central { font-size:28px; font-weight:800; margin-bottom:4px; z-index:1; }
-  .subtitulo-central { font-size:16px; color:#444; margin-bottom:24px; z-index:1; }
-
-  /* BARRA DE PROGRESSO */
-  .progresso { width:100%; height:6px; background:#eaeaea; border-radius:6px; position:fixed; top:0; left:0; z-index:20; }
-  .progresso-barra { height:100%; width:0%; background:var(--verde-logo); border-radius:6px; transition: width 0.4s ease; }
+  /* TÍTULO, SUBTÍTULO E ÍCONE */
+  .titulo-central-wrapper { position:relative; text-align:center; margin-bottom:32px; }
+  .icone-dieta { font-size:120px; color:var(--verde-logo); opacity:0.15; position:absolute; top:-20px; left:50%; transform:translateX(-50%); pointer-events:none; z-index:0; }
+  .titulo-central { position:relative; font-size:28px; font-weight:800; margin-bottom:4px; z-index:1; }
+  .subtitulo-central { position:relative; font-size:16px; color:#444; margin-bottom:24px; z-index:1; }
 
   /* GRID DE CARDS */
   .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:20px; }
-  .card {
-    background:#fff; border:1px solid #ddd; border-radius:12px; 
-    padding:12px 6px; font-size:14px; text-align:center; cursor:pointer; user-select:none;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:all 0.3s ease; 
-  }
-  .card:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.12); border-color:var(--verde-logo); }
+  .card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:8px 6px; font-size:12px; text-align:center; cursor:pointer; user-select:none; box-shadow:0 3px 8px rgba(0,0,0,0.08); transition:all 0.2s ease; }
+  .card:hover { transform:translateY(-1px); box-shadow:0 5px 14px rgba(0,0,0,0.12); border-color:var(--verde-logo); }
+  .card.ativo { background:var(--verde-logo); color:#fff; border-color:var(--verde-logo); }
 
-  /* CARD SELECIONADO COM GRADIENTE DO FUNDO */
-  .card.ativo {
-    background: linear-gradient(120deg,#1db954,#38ef7d,#1db954);
-    color:#fff;
-    border:none;
-    background-size:200% 200%;
-    animation: gradienteIA 4s ease infinite;
-  }
-
-  /* TÍTULO REFEIÇÃO */
+  /* TÍTULOS DAS REFEIÇÕES */
   .titulo-refeicao { text-align:center; margin-bottom:10px; font-size:16px; font-weight:600; }
 
-  /* ADD ALIMENTO */
+  /* BOTÃO ADICIONAR ALIMENTO */
   .add-box { display:flex; justify-content:center; margin-bottom:24px; gap:6px; }
   .add-box input { padding:6px 10px; font-size:13px; border-radius:8px; border:1px solid #ccc; outline:none; flex:1; text-align:center; }
-  .add-box button {
-    background: linear-gradient(120deg,#1db954,#38ef7d,#1db954);
-    background-size:200% 200%;
-    animation: gradienteIA 4s ease infinite;
-    color:#fff; border:none; border-radius:8px; padding:6px 12px; font-size:14px; cursor:pointer; transition:0.2s;
-  }
+  .add-box button { background:var(--verde-logo); color:#fff; border:none; border-radius:8px; padding:6px 12px; font-size:14px; cursor:pointer; transition:0.2s; }
   .add-box button:hover { transform:scale(1.05); opacity:0.85; }
 
   /* BOTÃO FINAL */
-  .btn-ver-dieta {
-    display:block; width:100%; max-width:320px; margin:24px auto; padding:14px;
-    background: linear-gradient(120deg,#1db954,#38ef7d,#1db954);
-    color:#fff; font-size:17px; font-weight:700; text-align:center; border-radius:40px;
-    box-shadow:0 12px 30px rgba(29,185,84,0.4);
-    cursor:pointer; transition:0.2s;
-    background-size:200% 200%;
-    animation: gradienteIA 4s ease infinite;
-  }
+  .btn-ver-dieta { display:block; width:100%; max-width:320px; margin:24px auto; padding:14px; background:var(--verde-logo); color:#fff; font-size:17px; font-weight:700; text-align:center; border-radius:40px; box-shadow:0 12px 30px rgba(29,185,84,0.4); cursor:pointer; transition:0.2s; }
   .btn-ver-dieta:hover { transform:scale(1.03); opacity:0.9; }
 
+  /* LINHA E SÍMBOLO SUAVE DE DIETA */
+  .linha-simbolo-wrapper { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:24px; }
+  .linha-simbolo-wrapper .linha { flex:1; height:2px; background-color:#e0e0e0; border-radius:1px; }
+  .linha-simbolo-wrapper .simbolo-dieta { font-size:24px; color:var(--verde-logo); opacity:0.3; }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="icone-dieta-topo">
-    <div class="prato"></div>
-    <div class="folha"></div>
-    <div class="garfo"></div>
-  </div>
-
+  <!-- LINHA E SÍMBOLO -->
+  <div class="titulo-central-wrapper">
+  <div class="icone-dieta-topo">🥗</div>
   <h1 class="titulo-central">Monte sua dieta</h1>
   <p class="subtitulo-central">Selecione os alimentos que deseja ter na sua dieta</p>
+</div>
 
-  <div class="progresso"><div class="progresso-barra" id="barraProgresso"></div></div>
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progresso">
+    <div class="progresso-barra" id="barraProgresso"></div>
+  </div>
 
   <!-- CAFÉ DA MANHÃ -->
-  <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Café da manhã</h2>
-    <div class="grid" id="cafeManha"></div>
-    <div class="add-box">
-      <input placeholder="Adicionar alimento">
-      <button onclick="adicionar(this,'cafeManha')">+</button>
-    </div>
-  </section>
+<section class="bloco-refeicao">
+  <h2 class="titulo-refeicao">Café da manhã</h2>
+
+  <div class="grid" id="cafeManha"></div>
+
+  <div class="add-box">
+    <input placeholder="Adicionar alimento">
+    <button onclick="adicionar(this,'cafeManha')">+</button>
+  </div>
+</section>
 
   <!-- ALMOÇO -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Almoço</h2>
+     
     <div class="grid" id="almoco"></div>
+   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'almoco')">+</button>
@@ -147,7 +86,9 @@
   <!-- CAFÉ DA TARDE -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Café da tarde</h2>
+     
     <div class="grid" id="cafeTarde"></div>
+   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'cafeTarde')">+</button>
@@ -157,27 +98,33 @@
   <!-- JANTA -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Janta</h2>
+     
     <div class="grid" id="janta"></div>
+   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'janta')">+</button>
     </div>
   </section>
 
-  <!-- ADICIONAL: SOBREMESA -->
+  <!-- EXTRA -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Adicional: Sobremesa</h2>
+    <h2 class="titulo-refeicao">Extra</h2>
+   
     <div class="grid" id="extra"></div>
+   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'extra')">+</button>
     </div>
   </section>
 
-  <!-- FACILIDADE DE COMER -->
+  <!-- FACILIDADE -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Facilidade de Comer</h2>
+    <h2 class="titulo-refeicao">Facilidade</h2>
+     
     <div class="grid" id="facilidade"></div>
+   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'facilidade')">+</button>
@@ -185,15 +132,17 @@
   </section>
 
   <!-- BOTÃO FINAL -->
-  <button class="btn-ver-dieta" onclick="finalizar()">Ver minha dieta agora</button>
-</div>
+  <button class="btn-ver-dieta" onclick="finalizar()">
+  Ver minha dieta agora
+</button>
+
 
 <script>
 const base = {
-  cafeManha: ["🥣 Aveia","🥓 Bacon","🥖 Baguete","🍯 Mel","☕ Café","🥚 Ovos","🍗 Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🍞 Pão","🍊 Laranja","🍌 Banana","🥛 Leite","🥤 Whey","🍨 Iogurte","🥔 Batata Doce"],
-  almoco: ["🍚 Arroz","🍤 Camarão","🌾 Feijão","🍗 Frango","🥩 Carne Bovina","🐟 Peixe","🥔 Batata Inglesa","🍝 Macarrão","🥬 Folhas Verdes","🥕 Legumes","🥦 Brócolis","🍳 Ovos","🥚 Omelete","🐟 Atum","Suco de Laranja"],
-  cafeTarde: ["🍞 Pão","🥑 Abacate","☕ Café","🥚 Ovos","🍗Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Maça","🥭 Manga","🍉 Melancia"],
-  janta: ["🍗 Frango","🍚 Arroz","🌾 Feijão","🥩 Carne Bovina","🐟 Peixe","🍳 Ovos","🍠 Batata doce","🥚 Omelete","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"],
+  cafeManha: ["🥣 Aveia","🥓 Bacon","🥖 Baguete","🍯 Mel","☕ Café+Açucar","🥚 Ovos","🍗 Frango","🍖 Presunto","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🍞 Pão","🥚 Omelete","🍊 Laranja","🍌 Banana","🍎 Maça","🥛 Leite","🥤 Whey","🍨 Iogurte","☕ Café","🥔 Batata Doce"],
+  almoco: ["🍚 Arroz","🍤 Camarão","🌾 Feijão","🍗 Frango","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🥔 Batata Inglesa","🍝 Macarrão","🥬 Folhas Verdes","🥕 Legumes","🥦 Brócolis","🍳 Ovos","🥚 Omelete","🥔 Batata Doce","🐟 Atum","Suco de Laranja"],
+  cafeTarde: ["🍞 Pão","🥖 Baguete","🥑 Abacate","☕ Café+Açucar","🥚 Ovos","🍗Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Maça","🥭 Manga","🍉 Melancia"],
+  janta: ["🍗 Frango","🍚 Arroz","🌾 Feijão","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🍳 Ovos","🍠 Batata doce","🍚 Arroz","🥚 Omelete","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"],
   extra: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim","🍮Gelatina","🍧 Sorvete","🥟 Biscoito"],
   facilidade: ["🥬 Verduras","🍎 Frutas","💊 Suplementos","🥕 Legumes"],
 };
@@ -241,11 +190,6 @@ function finalizar(){
   window.location.href = "carregando.html";
 }
 
-// BARRA DE PROGRESSO
-const paginaAtual = 2;
-const totalPaginas = 4;
-const perc = (paginaAtual / totalPaginas) * 100;
-document.getElementById('barraProgresso').style.width = perc + '%';
 </script>
 
 </body>
