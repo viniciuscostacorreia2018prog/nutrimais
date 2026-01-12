@@ -33,12 +33,12 @@
     </div>
 
     <div class="campo-whatsapp">
-      <select id="sexo">
-        <option value="">Sexo</option>
-        <option>Masculino</option>
-        <option>Feminino</option>
-      </select>
-    </div>
+  <select id="sexo">
+    <option value="" disabled selected>Sexo</option>
+    <option>Masculino</option>
+    <option>Feminino</option>
+  </select>
+</div>
 
     <div class="campo-whatsapp">
       <select id="objetivo">
@@ -51,40 +51,50 @@
     </div>
 
     <div class="campo-whatsapp">
-      <select id="calorias">
-        <option value="">Calorias</option>
-        <option>1600 kcal</option>
-        <option>1800 kcal</option>
-        <option>2000 kcal</option>
-        <option>2200 kcal</option>
-        <option>Não sei dizer</option>
-      </select>
-    </div>
+  <select id="calorias">
+    <option value="" disabled selected>Calorias</option>
+    <option>1600 kcal</option>
+    <option>1800 kcal</option>
+    <option>2000 kcal</option>
+    <option>2200 kcal</option>
+    <option>Não sei dizer</option>
+  </select>
+</div>
 
     <div class="campo-whatsapp">
-      <select id="alergia">
-        <option value="">Alergia</option>
-        <option>Não possuo</option>
-        <option>Sim, possuo</option>
-      </select>
-    </div>
+  <select id="alergia">
+    <option value="" disabled selected>Alergia</option>
+    <option value="nao">Não possuo</option>
+    <option value="sim">Sim, possuo</option>
+  </select>
+
+  <input
+    type="text"
+    id="alergiaDescricao"
+    class="input-extra"
+    placeholder="Descreva a alergia"
+  >
+</div>
 
     <div class="campo-whatsapp" id="alergiaBox" style="display:none;">
       <input type="text" id="alergiaDescricao" placeholder="Descreva a alergia">
     </div>
 
     <div class="campo-whatsapp">
-      <select id="historico">
-        <option value="">Histórico de Doença</option>
-        <option>Não possuo</option>
-        <option>Sim, pessoal</option>
-        <option>Sim, familiar</option>
-      </select>
-    </div>
+  <select id="historico">
+    <option value="" disabled selected>Histórico de Doença</option>
+    <option value="nao">Não possuo</option>
+    <option value="pessoal">Sim, pessoal</option>
+    <option value="familiar">Sim, familiar</option>
+  </select>
 
-    <div class="campo-whatsapp" id="historicoBox" style="display:none;">
-      <input type="text" id="historicoDescricao" placeholder="Descreva (se necessário)">
-    </div>
+  <input
+    type="text"
+    id="historicoDescricao"
+    class="input-extra"
+    placeholder="Descreva (se necessário)"
+  >
+</div>
 
     <button id="btnContinuar" class="botao-principal" disabled>
       Continuar
