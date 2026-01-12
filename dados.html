@@ -14,98 +14,103 @@
     <p class="subtitulo">Informe suas medidas corretamente</p>
   </div>
 
-  <div class="card-formulario">
+<div class="card-formulario">
 
-    <div class="campo-clinico">
-      <label>Nome</label>
-      <input type="text" id="nome" placeholder="Digite seu nome">
-    </div>
-
-    <div class="campo-clinico">
-      <label>Idade</label>
-      <input type="number" id="idade" placeholder="Ex: 21">
-    </div>
-
-    <div class="campo-clinico">
-      <label>Peso (kg)</label>
-      <input type="number" id="peso" placeholder="Ex: 80">
-    </div>
-
-    <div class="campo-clinico">
-      <label>Altura (cm)</label>
-      <input type="number" id="altura" placeholder="Ex: 180">
-    </div>
-
-    <div class="campo-clinico">
-      <label>Sexo</label>
-      <select id="sexo">
-        <option value="" disabled selected>Selecione</option>
-        <option>Masculino</option>
-        <option>Feminino</option>
-      </select>
-    </div>
-
-    <div class="campo-clinico">
-      <label>Objetivo</label>
-      <select id="objetivo">
-        <option value="" disabled selected>Selecione</option>
-        <option>Emagrecimento</option>
-        <option>Hipertrofia</option>
-        <option>Recomposição Corporal</option>
-        <option>Manutenção</option>
-      </select>
-    </div>
-
-    <div class="campo-clinico">
-      <label>Calorias</label>
-      <select id="calorias">
-        <option value="" disabled selected>Selecione</option>
-        <option>1600 kcal</option>
-        <option>1800 kcal</option>
-        <option>2000 kcal</option>
-        <option>2200 kcal</option>
-        <option>Não sei dizer</option>
-      </select>
-    </div>
-
-    <div class="campo-clinico">
-      <label>Alergia</label>
-      <select id="alergia">
-        <option value="" disabled selected>Selecione</option>
-        <option value="nao">Não possuo</option>
-        <option value="sim">Sim, possuo</option>
-      </select>
-
-      <input
-        type="text"
-        id="alergiaDescricao"
-        class="input-extra"
-        placeholder="Descreva a alergia"
-      >
-    </div>
-
-    <div class="campo-clinico">
-      <label>Histórico de Doença</label>
-      <select id="historico">
-        <option value="" disabled selected>Selecione</option>
-        <option value="nao">Não possuo</option>
-        <option value="pessoal">Sim, pessoal</option>
-        <option value="familiar">Sim, familiar</option>
-      </select>
-
-      <input
-        type="text"
-        id="historicoDescricao"
-        class="input-extra"
-        placeholder="Descreva (se necessário)"
-      >
-    </div>
-
-    <button id="btnContinuar" class="botao-principal" disabled>
-      Continuar
-    </button>
-
+  <div class="campo-card">
+    <label>Nome</label>
+    <input type="text" id="nome" placeholder="Digite seu nome">
   </div>
+
+  <div class="campo-card">
+    <label>Idade</label>
+    <input type="number" id="idade" placeholder="Ex: 21">
+  </div>
+
+  <div class="campo-card">
+    <label>Peso (kg)</label>
+    <input type="number" id="peso" placeholder="Ex: 80">
+  </div>
+
+  <div class="campo-card">
+    <label>Altura (cm)</label>
+    <input type="number" id="altura" placeholder="Ex: 180">
+  </div>
+
+  <div class="campo-card">
+    <label>Sexo</label>
+    <select id="sexo">
+      <option value="" disabled selected>Selecione</option>
+      <option>Masculino</option>
+      <option>Feminino</option>
+    </select>
+  </div>
+
+  <div class="campo-card">
+    <label>Objetivo</label>
+    <select id="objetivo">
+      <option value="" disabled selected>Selecione</option>
+      <option>Emagrecimento (Perda de Gordura Corporal)</option>
+      <option>Ganhar Massa Muscular (Hipertrofia)</option>
+      <option>Ganhar Massa Seca + Hipertrofia</option>
+      <option>Ganhar Massa Seca + Emagrecimento (Recomposição Corporal)</option>
+      <option>Manutenção</option>
+      <option>Melhora da Performance</option>
+      <option>Saúde e Bem-Estar Geral</option>
+    </select>
+  </div>
+
+  <div class="campo-card">
+    <label>Calorias</label>
+    <select id="calorias">
+      <option value="" disabled selected>Selecione</option>
+      <option>1400 kcal</option>
+      <option>1600 kcal</option>
+      <option>1800 kcal</option>
+      <option>2000 kcal</option>
+      <option>2200 kcal</option>
+      <option>2400 kcal</option>
+      <option>Não sei dizer</option>
+    </select>
+  </div>
+
+  <div class="campo-card">
+    <label>Alergia</label>
+    <select id="alergia">
+      <option value="" disabled selected>Selecione</option>
+      <option value="nao">Não possuo</option>
+      <option value="sim">Sim, possuo</option>
+    </select>
+
+    <input
+      type="text"
+      id="alergiaDescricao"
+      class="input-extra"
+      placeholder="Descreva a alergia"
+    >
+  </div>
+
+  <div class="campo-card">
+    <label>Histórico de Doença</label>
+    <select id="historico">
+      <option value="" disabled selected>Selecione</option>
+      <option value="nao">Não possuo</option>
+      <option value="pessoal">Sim, pessoal</option>
+      <option value="familiar">Sim, familiar</option>
+    </select>
+
+    <input
+      type="text"
+      id="historicoDescricao"
+      class="input-extra"
+      placeholder="Descreva (se necessário)"
+    >
+  </div>
+
+  <button id="btnContinuar" class="botao-principal" disabled>
+    Continuar
+  </button>
+
+</div>
 
   <script src="js/dados.js"></script>
 </body>
