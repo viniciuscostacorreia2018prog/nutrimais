@@ -731,3 +731,74 @@ body::after {
   font-size: 15px;
   opacity: 0.8;
 }
+
+/* ===== CARDS DE ANAMNESE (NUTRICIONISTA) ===== */
+
+.card-formulario {
+  max-width: 380px;
+  margin: 0 auto 80px;
+  padding: 22px 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* CADA CAMPO (CARD INDIVIDUAL) */
+.campo-whatsapp {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.campo-whatsapp:hover {
+  background: #ffffff;
+  border-color: #22c55e;
+}
+
+/* INPUTS E SELECTS */
+.campo-whatsapp input,
+.campo-whatsapp select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+  text-align: left;
+  outline: none;
+}
+
+/* PLACEHOLDER ESTILO CLÍNICO */
+.campo-whatsapp input::placeholder {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* LABEL DISCRETO (SE USAR) */
+.campo-whatsapp label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* CAMPOS DE TEXTO MAIOR (DOENÇAS / OBS) */
+.campo-whatsapp textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-size: 15px;
+  color: #111827;
+  outline: none;
+  min-height: 60px;
+}
+
+/* ESPAÇAMENTO ENTRE CAMPOS */
+.campo-whatsapp + .campo-whatsapp {
+  margin-top: 14px;
+}
