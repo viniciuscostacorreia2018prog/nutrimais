@@ -13,9 +13,10 @@
 
   .container { max-width:420px; margin:0 auto; padding:60px 20px 120px; text-align:center; position:relative; }
 
-  /* TÍTULO, SUBTÍTULO E ÍCONE */
+  /* TÍTULO, SUBTÍTULO E ÍCONE PROFISSIONAL */
   .titulo-central-wrapper { position:relative; text-align:center; margin-bottom:32px; }
-  .icone-dieta { font-size:120px; color:var(--verde-logo); opacity:0.15; position:absolute; top:-20px; left:50%; transform:translateX(-50%); pointer-events:none; z-index:0; }
+  .icone-dieta { font-size:120px; color:var(--verde-logo); opacity:0.15; position:absolute; top:-20px; left:50%; transform:translateX(-50%); pointer-events:none; z-index:0; background: url('img/dieta.png') center/contain no-repeat; width: 120px; height:120px; }
+
   .titulo-central { position:relative; font-size:28px; font-weight:800; margin-bottom:4px; z-index:1; }
   .subtitulo-central { position:relative; font-size:16px; color:#444; margin-bottom:24px; z-index:1; }
 
@@ -25,9 +26,37 @@
 
   /* GRID DE CARDS */
   .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:20px; }
-  .card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:8px 6px; font-size:12px; text-align:center; cursor:pointer; user-select:none; box-shadow:0 3px 8px rgba(0,0,0,0.08); transition:all 0.2s ease; }
-  .card:hover { transform:translateY(-1px); box-shadow:0 5px 14px rgba(0,0,0,0.12); border-color:var(--verde-logo); }
-  .card.ativo { background:var(--verde-logo); color:#fff; border-color:var(--verde-logo); }
+
+  /* CARD DE ALIMENTOS PADRÃO PÁGINA 2 */
+  .card { 
+    background:#fff; 
+    border:1px solid #e5e5e5; 
+    border-radius:18px; 
+    padding:22px 18px; 
+    font-size:14px; 
+    text-align:center; 
+    cursor:pointer; 
+    user-select:none; 
+    box-shadow:0 6px 20px rgba(0,0,0,0.06); 
+    transition:all 0.2s ease; 
+  }
+
+  .card:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.12); border-color:var(--verde-logo); }
+
+  /* CARD SELECIONADO COM GRADIENTE ANIMADO */
+  .card.ativo {
+    background: linear-gradient(120deg, #1db954, #38ef7d, #1db954);
+    background-size: 200% 200%;
+    color:#fff;
+    border-color:transparent;
+    animation: gradienteIA 4s ease infinite;
+  }
+
+  @keyframes gradienteIA {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
 
   /* TÍTULOS DAS REFEIÇÕES */
   .titulo-refeicao { text-align:center; margin-bottom:10px; font-size:16px; font-weight:600; }
@@ -38,14 +67,10 @@
   .add-box button { background:var(--verde-logo); color:#fff; border:none; border-radius:8px; padding:6px 12px; font-size:14px; cursor:pointer; transition:0.2s; }
   .add-box button:hover { transform:scale(1.05); opacity:0.85; }
 
-  /* BOTÃO FINAL */
-  .btn-ver-dieta { display:block; width:100%; max-width:320px; margin:24px auto; padding:14px; background:var(--verde-logo); color:#fff; font-size:17px; font-weight:700; text-align:center; border-radius:40px; box-shadow:0 12px 30px rgba(29,185,84,0.4); cursor:pointer; transition:0.2s; }
+  /* BOTÃO FINAL ESTILO PÁGINA 2 */
+  .btn-ver-dieta { display:block; width:100%; max-width:320px; margin:24px auto; padding:14px; background: linear-gradient(120deg, #1db954, #38ef7d, #1db954); background-size:200% 200%; animation: gradienteIA 4s ease infinite; color:#fff; font-size:17px; font-weight:700; text-align:center; border-radius:40px; box-shadow:0 12px 30px rgba(29,185,84,0.4); cursor:pointer; transition:0.2s; }
   .btn-ver-dieta:hover { transform:scale(1.03); opacity:0.9; }
 
-  /* LINHA E SÍMBOLO SUAVE DE DIETA */
-  .linha-simbolo-wrapper { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:24px; }
-  .linha-simbolo-wrapper .linha { flex:1; height:2px; background-color:#e0e0e0; border-radius:1px; }
-  .linha-simbolo-wrapper .simbolo-dieta { font-size:24px; color:var(--verde-logo); opacity:0.3; }
 </style>
 </head>
 <body>
@@ -53,10 +78,10 @@
 <div class="container">
   <!-- LINHA E SÍMBOLO -->
   <div class="titulo-central-wrapper">
-  <div class="icone-dieta-topo">🥗</div>
-  <h1 class="titulo-central">Monte sua dieta</h1>
-  <p class="subtitulo-central">Selecione os alimentos que deseja ter na sua dieta</p>
-</div>
+    <div class="icone-dieta"></div>
+    <h1 class="titulo-central">Monte sua dieta</h1>
+    <p class="subtitulo-central">Selecione os alimentos que deseja ter na sua dieta</p>
+  </div>
 
   <!-- BARRA DE PROGRESSO -->
   <div class="progresso">
@@ -64,23 +89,19 @@
   </div>
 
   <!-- CAFÉ DA MANHÃ -->
-<section class="bloco-refeicao">
-  <h2 class="titulo-refeicao">Café da manhã</h2>
-
-  <div class="grid" id="cafeManha"></div>
-
-  <div class="add-box">
-    <input placeholder="Adicionar alimento">
-    <button onclick="adicionar(this,'cafeManha')">+</button>
-  </div>
-</section>
+  <section class="bloco-refeicao">
+    <h2 class="titulo-refeicao">Café da manhã</h2>
+    <div class="grid" id="cafeManha"></div>
+    <div class="add-box">
+      <input placeholder="Adicionar alimento">
+      <button onclick="adicionar(this,'cafeManha')">+</button>
+    </div>
+  </section>
 
   <!-- ALMOÇO -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Almoço</h2>
-     
     <div class="grid" id="almoco"></div>
-   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'almoco')">+</button>
@@ -90,9 +111,7 @@
   <!-- CAFÉ DA TARDE -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Café da tarde</h2>
-     
     <div class="grid" id="cafeTarde"></div>
-   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'cafeTarde')">+</button>
@@ -102,33 +121,27 @@
   <!-- JANTA -->
   <section class="bloco-refeicao">
     <h2 class="titulo-refeicao">Janta</h2>
-     
     <div class="grid" id="janta"></div>
-   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'janta')">+</button>
     </div>
   </section>
 
-  <!-- EXTRA -->
+  <!-- ADICIONAL: SOBREMESA -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Extra</h2>
-   
+    <h2 class="titulo-refeicao">Adicional: Sobremesa</h2>
     <div class="grid" id="extra"></div>
-   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'extra')">+</button>
     </div>
   </section>
 
-  <!-- FACILIDADE -->
+  <!-- FACILIDADE DE COMER -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Facilidade</h2>
-     
+    <h2 class="titulo-refeicao">Facilidade de Comer</h2>
     <div class="grid" id="facilidade"></div>
-   
     <div class="add-box">
       <input placeholder="Adicionar alimento">
       <button onclick="adicionar(this,'facilidade')">+</button>
@@ -136,19 +149,16 @@
   </section>
 
   <!-- BOTÃO FINAL -->
-  <button class="btn-ver-dieta" onclick="finalizar()">
-  Ver minha dieta agora
-</button>
-
+  <button class="btn-ver-dieta" onclick="finalizar()">Ver minha dieta agora</button>
 
 <script>
 const base = {
-  cafeManha: ["🥣 Aveia","🥓 Bacon","🥖 Baguete","🍯 Mel","☕ Café+Açucar","🥚 Ovos","🍗 Frango","🍖 Presunto","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🍞 Pão","🥚 Omelete","🍊 Laranja","🍌 Banana","🍎 Maça","🥛 Leite","🥤 Whey","🍨 Iogurte","☕ Café","🥔 Batata Doce"],
-  almoco: ["🍚 Arroz","🍤 Camarão","🌾 Feijão","🍗 Frango","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🥔 Batata Inglesa","🍝 Macarrão","🥬 Folhas Verdes","🥕 Legumes","🥦 Brócolis","🍳 Ovos","🥚 Omelete","🥔 Batata Doce","🐟 Atum","Suco de Laranja"],
-  cafeTarde: ["🍞 Pão","🥖 Baguete","🥑 Abacate","☕ Café+Açucar","🥚 Ovos","🍗Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Maça","🥭 Manga","🍉 Melancia"],
-  janta: ["🍗 Frango","🍚 Arroz","🌾 Feijão","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🍳 Ovos","🍠 Batata doce","🍚 Arroz","🥚 Omelete","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"],
-  extra: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim","🍮Gelatina","🍧 Sorvete","🥟 Biscoito"],
-  facilidade: ["🥬 Verduras","🍎 Frutas","💊 Suplementos","🥕 Legumes"],
+  cafeManha: ["🥣 Aveia","🥓 Bacon","🥖 Pão Francês","🍯 Mel","☕ Café","🥚 Ovos","🍌 Banana","🍊 Laranja","🥛 Leite","🥞 Panqueca","🧀 Queijo","🍞 Pão Integral"],
+  almoco: ["🍚 Arroz","🌾 Feijão","🍗 Frango","🥩 Carne Bovina","🐟 Peixe","🥬 Salada","🥕 Legumes","🥦 Brócolis","🍝 Macarrão","🍳 Omelete","🍠 Batata Doce"],
+  cafeTarde: ["🍞 Pão","🥖 Baguete","🥑 Abacate","☕ Café","🥚 Ovos","🥣 Iogurte","🥜 Castanhas","🍎 Maçã","🥭 Manga","🍉 Melancia"],
+  janta: ["🍗 Frango","🍚 Arroz","🌾 Feijão","🥩 Carne Bovina","🐟 Peixe","🥬 Salada","🥕 Legumes","🥦 Brócolis","🍳 Omelete","🍠 Batata Doce","🍝 Macarrão"],
+  extra: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim","🍮 Gelatina","🍧 Sorvete","🥟 Biscoito"],
+  facilidade: ["🥬 Verduras","🍎 Frutas","💊 Suplementos","🥕 Legumes"]
 };
 
 const dieta = { cafeManha: [], almoco: [], cafeTarde: [], janta: [], extra: [], facilidade: [] };
@@ -171,8 +181,8 @@ function toggle(ref,nome,el){
     dieta[ref].splice(idx,1);
     el.classList.remove("ativo");
   } else {
-   dieta[ref].push(nome);
-   el.classList.add("ativo");
+    dieta[ref].push(nome);
+    el.classList.add("ativo");
   }
 }
 
@@ -194,12 +204,13 @@ function finalizar(){
   window.location.href = "carregando.html";
 }
 
-// BARRA DE PROGRESSO POR ETAPA (PÁGINA)
-const paginaAtual = 2;  // exemplo: página 2 de 4
+// BARRA DE PROGRESSO
+const paginaAtual = 2;
 const totalPaginas = 4;
 const perc = (paginaAtual / totalPaginas) * 100;
 document.getElementById('barraProgresso').style.width = perc + '%';
 </script>
 
+</div>
 </body>
 </html>
