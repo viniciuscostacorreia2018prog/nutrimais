@@ -1,42 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const btn = document.getElementById("btnContinuar");
 
-  const camposObrigatorios = [
-    "nome", "idade", "peso", "altura",
-    "sexo", "objetivo", "calorias", "alergia", "historico"
-  ];
+  const alergia = document.getElementById("alergia");
+  const alergiaDesc = document.getElementById("alergiaDescricao");
 
-  function validar() {
-    const ok = camposObrigatorios.every(id => {
-      const el = document.getElementById(id);
-      return el && el.value.trim() !== "";
-    });
-    btn.disabled = !ok;
+  const historico = document.getElementById("historico");
+  const historicoDesc = document.getElementById("historicoDescricao");
+
+  function validarCampos() {
+    const campos = document.querySelectorAll(
+      'input:not(.input-extra), select'
+    );
+
+    const extrasAtivos = document.querySelectorAll(".input-extra.ativo");
+
+    const todos = [...campos, ...extrasAtivos];
+
+    btn.disabled = !todos.every(c => c.value && c.value.trim() !== "");
   }
 
-  document.querySelectorAll("input, select").forEach(el => {
-    el.addEventListener("input", validar);
-    el.addEventListener("change", validar);
+  alergia.addEventListener("change", () => {
+    if (alergia.value === "sim") {
+      alergiaDesc.classList.add("ativo");
+    } else {
+      alergiaDesc.classList.remove("ativo");
+      alergiaDesc.value = "";
+    }
+    validarCampos();
   });
 
-  // Alergia
-  document.getElementById("alergia").addEventListener("change", e => {
-    document.getElementById("alergiaBox").style.display =
-      e.target.value.includes("Sim") ? "block" : "none";
-    validar();
+  historico.addEventListener("change", () => {
+    if (historico.value !== "nao") {
+      historicoDesc.classList.add("ativo");
+    } else {
+      historicoDesc.classList.remove("ativo");
+      historicoDesc.value = "";
+    }
+    validarCampos();
   });
 
-  // Histórico
-  document.getElementById("historico").addEventListener("change", e => {
-    document.getElementById("historicoBox").style.display =
-      e.target.value.includes("Sim") ? "block" : "none";
-    validar();
-  });
+  document.addEventListener("input", validarCampos);
+  document.addEventListener("change", validarCampos);
 
-  btn.addEventListener("click", () => {
-    if (btn.disabled) return;
-    window.location.href = "alimentos.html";
-  });
-
+  validarCampos();
 });
