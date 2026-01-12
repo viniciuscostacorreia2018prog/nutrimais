@@ -1,53 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===============================
-     SUBSTITUI TEXTO DO BOTÃO
-     =============================== */
+  const camposExpansiveis = document.querySelectorAll(".campo-expansivel");
+  const btn = document.getElementById("btnContinuar");
 
-  document.querySelectorAll(".opcao").forEach(opcao => {
-    const botao = opcao.querySelector(".opcao-toggle");
-    const select = opcao.querySelector("select");
-    const extra = opcao.querySelector("input");
+  camposExpansiveis.forEach(campo => {
+    const trigger = campo.querySelector(".campo-trigger");
+    const conteudo = campo.querySelector(".campo-conteudo");
+    const select = campo.querySelector("select");
+    const extra = campo.querySelector(".input-extra");
 
-    // Quando escolher uma opção
+    // Abre/fecha ao clicar
+    trigger.addEventListener("click", () => {
+      campo.classList.toggle("ativo");
+    });
+
+    // Quando escolhe uma opção
     select.addEventListener("change", () => {
       const valor = select.value;
+      if (!valor) return;
 
-      // Troca o texto do botão
-      botao.textContent = valor;
+      // Substitui texto do "botão"
+      trigger.textContent = valor;
 
-      // Alergia / Histórico → mostra campo extra só se for "Sim"
+      // Alergia / Histórico → campo extra
       if (extra) {
         if (valor.toLowerCase().includes("sim")) {
-          extra.style.display = "block";
+          extra.classList.add("ativo");
         } else {
-          extra.style.display = "none";
+          extra.classList.remove("ativo");
           extra.value = "";
         }
       }
 
-      validarCampos();
+      campo.classList.remove("ativo");
+      validar();
     });
   });
 
-  /* ===============================
-     VALIDAÇÃO SEM INTERFERIR VISUAL
-     =============================== */
-
-  const btn = document.getElementById("btnContinuar");
-
-  function validarCampos() {
-    const campos = document.querySelectorAll(
-      'input:not([style*="display: none"]), select'
+  function validar() {
+    const obrigatorios = document.querySelectorAll(
+      'input:not(.input-extra), select'
     );
 
-    const ok = [...campos].every(c => c.value && c.value.trim() !== "");
+    const ok = [...obrigatorios].every(c =>
+      c.value && c.value.trim() !== ""
+    );
+
     btn.disabled = !ok;
   }
 
-  document.addEventListener("input", validarCampos);
-  document.addEventListener("change", validarCampos);
-
-  validarCampos();
+  document.addEventListener("input", validar);
+  document.addEventListener("change", validar);
 
 });
