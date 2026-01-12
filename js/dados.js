@@ -55,13 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   validarCampos();
 
-        document.addEventListener("DOMContentLoaded", () => {
-    const botao = document.getElementById("btnContinuar");
-
-    botao.addEventListener("click", () => {
-        // Redireciona para a página de alimentos
-        window.location.href = "alimentos.html";
-    });
-});
+  // <<< CORREÇÃO AQUI: Listener de clique do botão
+  btnContinuar.addEventListener("click", () => {
+      window.location.href = "alimentos.html";
+  });
 
 });
