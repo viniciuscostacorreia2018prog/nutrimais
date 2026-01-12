@@ -1,35 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btnContinuar");
-  const campos = document.querySelectorAll("input, select");
 
-  // Ativa/desativa botão
-  function validar() {
-    const ok = [...campos].every(c => c.value.trim() !== "" || c.style.display === "none");
-    btn.disabled = !ok;
-  }
+  /* ===============================
+     SUBSTITUI TEXTO DO BOTÃO
+     =============================== */
 
-  campos.forEach(c => {
-    c.addEventListener("input", validar);
-    c.addEventListener("change", validar);
-  });
-
-  // Opções expansíveis inteligentes
   document.querySelectorAll(".opcao").forEach(opcao => {
-    const toggle = opcao.querySelector(".opcao-toggle");
-    const body = opcao.querySelector(".opcao-body");
-    const select = opcao.querySelector(".opcao-select");
-    const extra = opcao.querySelector(".opcao-extra");
+    const botao = opcao.querySelector(".opcao-toggle");
+    const select = opcao.querySelector("select");
+    const extra = opcao.querySelector("input");
 
-    toggle.addEventListener("click", () => {
-      opcao.classList.toggle("active");
-    });
-
+    // Quando escolher uma opção
     select.addEventListener("change", () => {
-      toggle.textContent = select.value;
-      opcao.classList.remove("active");
+      const valor = select.value;
 
+      // Troca o texto do botão
+      botao.textContent = valor;
+
+      // Alergia / Histórico → mostra campo extra só se for "Sim"
       if (extra) {
-        if (select.value.includes("Sim")) {
+        if (valor.toLowerCase().includes("sim")) {
           extra.style.display = "block";
         } else {
           extra.style.display = "none";
@@ -37,12 +26,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      validar();
+      validarCampos();
     });
   });
 
-  btn.addEventListener("click", () => {
-    if (btn.disabled) return;
-    window.location.href = "alimentos.html";
-  });
+  /* ===============================
+     VALIDAÇÃO SEM INTERFERIR VISUAL
+     =============================== */
+
+  const btn = document.getElementById("btnContinuar");
+
+  function validarCampos() {
+    const campos = document.querySelectorAll(
+      'input:not([style*="display: none"]), select'
+    );
+
+    const ok = [...campos].every(c => c.value && c.value.trim() !== "");
+    btn.disabled = !ok;
+  }
+
+  document.addEventListener("input", validarCampos);
+  document.addEventListener("change", validarCampos);
+
+  validarCampos();
+
 });
