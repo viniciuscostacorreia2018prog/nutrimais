@@ -1,80 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const btn = document.getElementById("btnContinuar");
 
-  // Abrir / fechar campos
-  document.querySelectorAll(".campo-trigger").forEach(trigger => {
-    trigger.addEventListener("click", () => {
-      const bloco = trigger.closest(".campo-expansivel");
-      bloco.classList.toggle("ativo");
+  const camposObrigatorios = [
+    "nome", "idade", "peso", "altura",
+    "sexo", "objetivo", "calorias", "alergia", "historico"
+  ];
+
+  function validar() {
+    const ok = camposObrigatorios.every(id => {
+      const el = document.getElementById(id);
+      return el && el.value.trim() !== "";
     });
-  });
-
-  // Lógica de substituição e campos extras
-  document.querySelectorAll(".campo-expansivel").forEach(bloco => {
-    const trigger = bloco.querySelector(".campo-trigger");
-    const select = bloco.querySelector("select");
-    const extra = bloco.querySelector(".input-extra");
-    const textoPadrao = trigger.dataset.default;
-
-    select.addEventListener("change", () => {
-      const option = select.options[select.selectedIndex];
-      const valor = select.value;
-
-      if (valor) {
-        trigger.textContent = option.text;
-        bloco.classList.remove("ativo");
-      } else {
-        trigger.textContent = textoPadrao;
-      }
-
-      if (extra) {
-        if (valor === "sim" || valor === "pessoal" || valor === "familiar") {
-          extra.classList.add("ativo");
-        } else {
-          extra.classList.remove("ativo");
-          extra.value = "";
-        }
-      }
-
-      validarCampos();
-    });
-  });
-
-  function validarCampos() {
-    const camposBase = document.querySelectorAll(
-      '.campo-whatsapp input, .campo-whatsapp select'
-    );
-
-    const selects = document.querySelectorAll(
-      '.campo-expansivel select'
-    );
-
-    const extrasAtivos = document.querySelectorAll(".input-extra.ativo");
-
-    const todos = [...camposBase, ...selects, ...extrasAtivos];
-
-    const ok = todos.every(c => c.value && c.value.trim() !== "");
     btn.disabled = !ok;
   }
 
-  document.addEventListener("input", validarCampos);
-  document.addEventListener("change", validarCampos);
-
-  validarCampos();
-  
-document.querySelectorAll(".campo-conteudo input").forEach(input => {
-  input.addEventListener("blur", () => {
-    const bloco = input.closest(".campo-expansivel");
-    if (input.value.trim() !== "") {
-      bloco.classList.remove("ativo");
-    }
+  document.querySelectorAll("input, select").forEach(el => {
+    el.addEventListener("input", validar);
+    el.addEventListener("change", validar);
   });
-});
 
-});
+  // Alergia
+  document.getElementById("alergia").addEventListener("change", e => {
+    document.getElementById("alergiaBox").style.display =
+      e.target.value.includes("Sim") ? "block" : "none";
+    validar();
+  });
 
-btn.addEventListener("click", () => {
-  if (btn.disabled) return;
+  // Histórico
+  document.getElementById("historico").addEventListener("change", e => {
+    document.getElementById("historicoBox").style.display =
+      e.target.value.includes("Sim") ? "block" : "none";
+    validar();
+  });
 
-  window.location.href = "alimentos.html";
+  btn.addEventListener("click", () => {
+    if (btn.disabled) return;
+    window.location.href = "alimentos.html";
+  });
+
 });
