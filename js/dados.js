@@ -1,55 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  const camposExpansiveis = document.querySelectorAll(".campo-expansivel");
   const btn = document.getElementById("btnContinuar");
+  const campos = document.querySelectorAll("input, select");
 
-  camposExpansiveis.forEach(campo => {
-    const trigger = campo.querySelector(".campo-trigger");
-    const conteudo = campo.querySelector(".campo-conteudo");
-    const select = campo.querySelector("select");
-    const extra = campo.querySelector(".input-extra");
+  // Ativa/desativa botão
+  function validar() {
+    const ok = [...campos].every(c => c.value.trim() !== "" || c.style.display === "none");
+    btn.disabled = !ok;
+  }
 
-    // Abre/fecha ao clicar
-    trigger.addEventListener("click", () => {
-      campo.classList.toggle("ativo");
+  campos.forEach(c => {
+    c.addEventListener("input", validar);
+    c.addEventListener("change", validar);
+  });
+
+  // Opções expansíveis inteligentes
+  document.querySelectorAll(".opcao").forEach(opcao => {
+    const toggle = opcao.querySelector(".opcao-toggle");
+    const body = opcao.querySelector(".opcao-body");
+    const select = opcao.querySelector(".opcao-select");
+    const extra = opcao.querySelector(".opcao-extra");
+
+    toggle.addEventListener("click", () => {
+      opcao.classList.toggle("active");
     });
 
-    // Quando escolhe uma opção
     select.addEventListener("change", () => {
-      const valor = select.value;
-      if (!valor) return;
+      toggle.textContent = select.value;
+      opcao.classList.remove("active");
 
-      // Substitui texto do "botão"
-      trigger.textContent = valor;
-
-      // Alergia / Histórico → campo extra
       if (extra) {
-        if (valor.toLowerCase().includes("sim")) {
-          extra.classList.add("ativo");
+        if (select.value.includes("Sim")) {
+          extra.style.display = "block";
         } else {
-          extra.classList.remove("ativo");
+          extra.style.display = "none";
           extra.value = "";
         }
       }
 
-      campo.classList.remove("ativo");
       validar();
     });
   });
 
-  function validar() {
-    const obrigatorios = document.querySelectorAll(
-      'input:not(.input-extra), select'
-    );
-
-    const ok = [...obrigatorios].every(c =>
-      c.value && c.value.trim() !== ""
-    );
-
-    btn.disabled = !ok;
-  }
-
-  document.addEventListener("input", validar);
-  document.addEventListener("change", validar);
-
+  btn.addEventListener("click", () => {
+    if (btn.disabled) return;
+    window.location.href = "alimentos.html";
+  });
 });
