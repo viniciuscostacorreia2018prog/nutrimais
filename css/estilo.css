@@ -646,3 +646,8 @@ body::after {
 .input-extra.ativo {
   display: block;
 }
+
+  .campo-expansivel {
+  border-bottom: none;
+}
+
