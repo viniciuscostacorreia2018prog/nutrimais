@@ -813,26 +813,6 @@ body::after {
   margin-bottom:26px;
 }
 
-/* SILHUETAS */
-.pagina4 .p4-silhuetas{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  margin-bottom:26px;
-}
-
-.pagina4 .p4-silhuetas img{
-  width:90px;
-  opacity:0.7;
-}
-
-/* ALERTAS */
-.pagina4 .p4-alertas{
-  font-size:12.5px;
-  line-height:1.5;
-  margin-bottom:26px;
-}
-
 /* BOTÃO (REAPROVEITA PADRÃO EXISTENTE) */
 .pagina4 .p4-btn{
   display:inline-flex;
