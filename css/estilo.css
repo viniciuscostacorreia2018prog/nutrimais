@@ -211,6 +211,14 @@
   opacity: 0.6;
 }
 
+.regua {
+  font-size: 45px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  margin-bottom: 10px;   /* ↓ diminui o espaço */
+  opacity: 0.6;
+}
+
 .botao-principal.ativo {
   cursor: pointer;
   opacity: 1;
@@ -279,29 +287,30 @@
 /* Título e subtítulo centralizados (mantendo estilo anterior) */
 .titulo-central {
   text-align: center;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
   color: #111111;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .subtitulo-central {
   text-align: center;
-  font-size: 16px;
-  color: #444444;
-  margin-bottom: 36px;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 18px;
 }
 
 /* CARD GRANDE DA REFEIÇÃO */
 .bloco-refeicao {
   width: 100%;
-  max-width: 450px;  /* mesma largura do card da página 2 */
-  margin: 0 auto; /* centraliza e mantém espaçamento inferior */
-  padding: 22px 18px;  /* mesma margem interna do card da página 2 */
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 0;
+  padding: 22px 18px;
   border-radius: 18px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 /* TÍTULO DENTRO DO CARD */
