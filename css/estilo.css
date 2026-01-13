@@ -781,7 +781,7 @@ body::after {
   text-align:center;
 }
 
-/* VERIFICADO – NÃO ALTERADO */
+/* VERIFICADO – NÃO ALTERAR */
 .pagina4 .p4-icon-check{
   width:70px;
   height:70px;
@@ -807,44 +807,10 @@ body::after {
   color:#111;
 }
 
-/* TEXTO PRINCIPAL */
+/* TEXTO */
 .pagina4 .p4-texto{
   font-size:14px;
   line-height:1.65;
   color:#333;
-  margin-bottom:12px;
-}
-
-/* TEXTO SECUNDÁRIO */
-.pagina4 .p4-texto-sec{
-  font-size:13.5px;
-  line-height:1.55;
-  color:#555;
   margin-bottom:26px;
 }
-
-/* BOTÃO
-   ⚠️ NÃO ESTILIZADO
-   Reaproveita 100% o botão da Página 2 */
-document.addEventListener('DOMContentLoaded', function () {
-
-  const btnContinuar = document.getElementById('p4Continuar');
-  if (!btnContinuar) return;
-
-  // começa desativado
-  btnContinuar.disabled = true;
-  btnContinuar.classList.add('desativado');
-
-  // libera após 7 segundos
-  setTimeout(() => {
-    btnContinuar.disabled = false;
-    btnContinuar.classList.remove('desativado');
-  }, 7000);
-
-  // clique leva para pagamento
-  btnContinuar.addEventListener('click', function () {
-    if (btnContinuar.disabled) return;
-    window.location.href = 'pagamento.html';
-  });
-
-});
