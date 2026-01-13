@@ -295,8 +295,8 @@
 /* CARD GRANDE DA REFEIÇÃO */
 .bloco-refeicao {
   width: 100%;
-  max-width: 420px;  /* mesma largura do card da página 2 */
-  margin: 0 auto 28px; /* centraliza e mantém espaçamento inferior */
+  max-width: 450px;  /* mesma largura do card da página 2 */
+  margin: 0 auto; /* centraliza e mantém espaçamento inferior */
   padding: 22px 18px;  /* mesma margem interna do card da página 2 */
   border-radius: 18px;
   background: #ffffff;
