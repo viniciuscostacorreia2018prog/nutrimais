@@ -107,47 +107,47 @@
     </div>
   </section>
 
-  <!-- EXTRA -->
+  <!-- Adicional:Sobremesa -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Extra</h2>
+    <h2 class="titulo-refeicao">Sobremesa</h2>
    
-    <div class="grid" id="extra"></div>
+    <div class="grid" id="Sobremesa"></div>
    
     <div class="add-box">
       <input placeholder="Adicionar alimento">
-      <button onclick="adicionar(this,'extra')">+</button>
+      <button onclick="adicionar(this,'Sobremesa')">+</button>
     </div>
   </section>
 
   <!-- FACILIDADE -->
   <section class="bloco-refeicao">
-    <h2 class="titulo-refeicao">Facilidade</h2>
+    <h2 class="titulo-refeicao">Suplementos</h2>
      
-    <div class="grid" id="facilidade"></div>
+    <div class="grid" id="Suplementos"></div>
    
     <div class="add-box">
       <input placeholder="Adicionar alimento">
-      <button onclick="adicionar(this,'facilidade')">+</button>
+      <button onclick="adicionar(this,'Suplementos')">+</button>
     </div>
   </section>
 
   <!-- BOTÃO FINAL -->
   <button class="btn-ver-dieta" onclick="finalizar()">
-  Ver minha dieta agora
+  Gerar dieta Agora
 </button>
 
 
 <script>
 const base = {
-  cafeManha: ["🥣 Aveia","🥓 Bacon","🥖 Baguete","🍯 Mel","☕ Café+Açucar","🥚 Ovos","🍗 Frango","🍖 Presunto","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🍞 Pão","🥚 Omelete","🍊 Laranja","🍌 Banana","🍎 Maça","🥛 Leite","🥤 Whey","🍨 Iogurte","☕ Café","🥔 Batata Doce"],
+  cafeManha: ["Carboidrato: 🥣 Aveia","Proteinas: 🥓 Bacon","Carboidrato: 🥖 Baguete","Gorduras: 🍯 Mel","Proteinas: 🥚 Ovos","Proteinas: 🍗 Frango","Carboidrato: 🥞 Tapioca","Carboidrato: 🌽 Cuscuz","Proteinas: 🧀 Queijo","Carboidrato: 🍞 Pão","Proteinas: 🥚 Omelete","Gorduras: 🥛 Leite","Gorduras: 🍨 Iogurte","☕ Café","Carboidrato: 🥔 Batata Doce"],
   almoco: ["🍚 Arroz","🍤 Camarão","🌾 Feijão","🍗 Frango","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🥔 Batata Inglesa","🍝 Macarrão","🥬 Folhas Verdes","🥕 Legumes","🥦 Brócolis","🍳 Ovos","🥚 Omelete","🥔 Batata Doce","🐟 Atum","Suco de Laranja"],
-  cafeTarde: ["🍞 Pão","🥖 Baguete","🥑 Abacate","☕ Café+Açucar","🥚 Ovos","🍗Frango","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","🥤 Whey","🥜 Castanhas","🍎 Maça","🥭 Manga","🍉 Melancia"],
+  cafeTarde: ["🍞 Pão","🥖 Baguete","🥑 Abacate","🥞 Tapioca","🌽 Cuscuz","🧀 Queijo","🥣 Iogurte","Requeijão","🥜 Castanhas","🍎 Maça","🥭 Manga","🍉 Melancia"],
   janta: ["🍗 Frango","🍚 Arroz","🌾 Feijão","🥩 Carne Corpo","🥩 Carne Bovina","🥩 Moela","🐟 Peixe","🍳 Ovos","🍠 Batata doce","🍚 Arroz","🥚 Omelete","🥗 Salada","🥕 Legumes","🍝 Macarrão","🐟 Atum"],
-  extra: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim","🍮Gelatina","🍧 Sorvete","🥟 Biscoito"],
-  facilidade: ["🥬 Verduras","🍎 Frutas","💊 Suplementos","🥕 Legumes"],
+  Sobremesa: ["🍫 Brigadeiro","🥄 Doce de leite","🥜 Pasta de amendoim","🍮Gelatina","🍧 Sorvete","🥟 Biscoito"],
+  Suplementos: ["🥤 Whey","🥤 Creatina","🥤 Glutamina","🥤 Pré-Treino","🥤 Multivitaminico","🥤 Ômega 3"],
 };
 
-const dieta = { cafeManha: [], almoco: [], cafeTarde: [], janta: [], extra: [], facilidade: [] };
+const dieta = { cafeManha: [], almoco: [], cafeTarde: [], janta: [], extra: [], Suplementos: [] };
 
 // Montar cards
 Object.keys(base).forEach(ref => {
