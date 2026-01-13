@@ -1,20 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
-  const btnContinuar = document.getElementById('p4Continuar');
-  if (!btnContinuar) return;
+  const btn = document.getElementById('p4Continuar');
+  if (!btn) return;
 
-  // começa bloqueado
-  btnContinuar.disabled = true;
+  // inicia desativado
+  btn.disabled = true;
 
   // libera após 7 segundos
   setTimeout(() => {
-    btnContinuar.disabled = false;
+    btn.disabled = false;
   }, 7000);
 
   // redireciona para pagamento
-  btnContinuar.addEventListener('click', function () {
-    if (btnContinuar.disabled) return;
-    window.location.href = 'pagamento.html';
+  btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+    window.location.assign('pagamento.html');
   });
 
 });
